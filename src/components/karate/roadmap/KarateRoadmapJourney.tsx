@@ -66,9 +66,15 @@ function InfographicLegend() {
       className="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-scrapbook-xl border border-lavender/25 bg-white/60 px-3 py-2.5 sm:gap-x-6 sm:px-4"
       aria-hidden
     >
-      {items.map(({ label, icon: Icon, tone }) => (
-        <span key={label} className="inline-flex items-center gap-1.5 text-xs font-semibold text-plum/75 sm:text-sm">
-          <Icon className={cn("h-4 w-4", tone)} size={16} />
+      {items.map(({ label, icon: Icon, tone }, i) => (
+        <span
+          key={label}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-plum/75 sm:text-sm"
+          style={{ "--infographic-delay": `${i * 0.35}s` } as CSSProperties}
+        >
+          <span className="infographic-legend-icon inline-flex">
+            <Icon className={cn("h-4 w-4", tone)} size={16} />
+          </span>
           {label}
         </span>
       ))}
@@ -97,11 +103,14 @@ function MilestoneProgressRail({
       <div className="relative h-3 overflow-hidden rounded-pill bg-lavender/25 shadow-inner">
         <div
           className={cn(
-            "infographic-rail-fill absolute inset-y-0 left-0 rounded-pill bg-gradient-to-r from-mint/80 via-karate-orange/90 to-butter/70",
+            "infographic-rail-fill absolute inset-y-0 left-0 rounded-pill",
             drawActive && "infographic-rail-fill--active",
           )}
           style={{ "--infographic-fill": `${fillPct}%` } as CSSProperties}
-        />
+        >
+          <div className="infographic-rail-gradient absolute inset-0" />
+          <span className="infographic-rail-shimmer" aria-hidden />
+        </div>
       </div>
       <ol className="relative m-0 mt-3 grid list-none grid-cols-7 gap-1 p-0">
         {milestones.map((stage, i) => {
@@ -115,19 +124,26 @@ function MilestoneProgressRail({
                 className={cn(
                   "infographic-rail-node flex h-9 w-9 items-center justify-center rounded-full border-2 bg-white shadow-[var(--shadow-sticker)]",
                   isPast && "border-mint/50",
-                  isCurrent && "infographic-current-node border-karate-orange/60 scale-110",
-                  stage.status === "future-milestone" && "border-dashed border-lavender/45 opacity-90",
+                  isCurrent && "infographic-current-node border-karate-orange/60",
+                  stage.status === "future-milestone" &&
+                    "infographic-rail-node--future border-dashed border-lavender/45",
                   isSummit && "border-plum/35 bg-gradient-to-br from-lavender/30 to-butter/25",
                 )}
-                style={{
-                  boxShadow: isCurrent
-                    ? "0 0 0 3px rgba(242, 140, 40, 0.2), var(--shadow-sticker)"
-                    : undefined,
-                }}
+                style={
+                  {
+                    "--infographic-delay": `${i * 0.22}s`,
+                  } as CSSProperties
+                }
               >
                 <span
-                  className="h-3.5 w-3.5 rounded-full border border-plum/15"
-                  style={{ background: stage.beltColor }}
+                  className={cn(
+                    "infographic-belt-dot h-3.5 w-3.5 rounded-full border border-plum/15",
+                    isCurrent && "infographic-belt-dot--current",
+                  )}
+                  style={{
+                    background: stage.beltColor,
+                    "--infographic-delay": `${i * 0.22}s`,
+                  } as CSSProperties}
                 />
               </span>
               <span className="font-display text-[0.62rem] font-bold leading-tight text-plum/70 xl:text-xs">
@@ -173,16 +189,18 @@ function MilestoneInfographicCard({
         isSummit && "h-12 w-12 border-plum/30 bg-gradient-to-br from-lavender/25 to-butter/20",
       )}
     >
-      <MilestoneStatusIcon
-        stage={stage}
-        className={cn(
-          "h-5 w-5",
-          isPast && "text-mint",
-          isCurrent && "text-karate-orange",
-          isFuture && !isSummit && "text-lavender",
-          isSummit && "text-plum/80",
-        )}
-      />
+      <span className={cn("inline-flex", isSummit && "infographic-summit-icon")}>
+        <MilestoneStatusIcon
+          stage={stage}
+          className={cn(
+            "h-5 w-5",
+            isPast && "text-mint",
+            isCurrent && "text-karate-orange",
+            isFuture && !isSummit && "text-lavender",
+            isSummit && "text-plum/80",
+          )}
+        />
+      </span>
     </span>
   );
 
@@ -192,17 +210,35 @@ function MilestoneInfographicCard({
         "infographic-milestone-card group relative w-full rounded-scrapbook-xl border-2 bg-white/94 p-3 text-left shadow-[var(--shadow-paper)]",
         layout === "grid" && "flex min-h-[15.5rem] flex-col xl:min-h-[16.5rem]",
         isCurrent &&
-          "z-[1] border-karate-orange/50 bg-gradient-to-br from-white via-karate-orange/10 to-butter/15 shadow-[0_0_0_1px_rgba(242,140,40,0.12),var(--shadow-paper-lifted)] lg:scale-[1.03]",
-        isFuture && "infographic-future-card border-lavender/30 opacity-[0.92]",
+          "infographic-current-card z-[1] border-karate-orange/50 bg-gradient-to-br from-white via-karate-orange/10 to-butter/15 lg:scale-[1.03]",
+        isFuture &&
+          !isSummit &&
+          "infographic-future-float infographic-future-card border-lavender/30 opacity-[0.92]",
         isSummit &&
-          "border-plum/30 bg-gradient-to-br from-lavender/12 via-white to-butter/15",
+          "infographic-summit-float border-plum/30 bg-gradient-to-br from-lavender/12 via-white to-butter/15",
       )}
+      style={
+        isFuture
+          ? ({ "--infographic-delay": `${index * 0.28}s` } as CSSProperties)
+          : undefined
+      }
     >
       {isCurrent ? (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -inset-0.5 rounded-scrapbook-xl bg-karate-orange/12 opacity-60 blur-md"
-        />
+        <>
+          <span
+            aria-hidden
+            className="infographic-current-halo pointer-events-none absolute -inset-0.5 rounded-scrapbook-xl bg-karate-orange/20 blur-md"
+          />
+          <span className="infographic-sparkle infographic-sparkle--a" aria-hidden>
+            ✦
+          </span>
+          <span className="infographic-sparkle infographic-sparkle--b" aria-hidden>
+            ✦
+          </span>
+          <span className="infographic-sparkle infographic-sparkle--c" aria-hidden>
+            ★
+          </span>
+        </>
       ) : null}
 
       <div className="relative flex flex-col items-center gap-2 sm:gap-2.5">
@@ -214,17 +250,30 @@ function MilestoneInfographicCard({
           <span className="font-display text-[0.65rem] font-bold uppercase tracking-wide text-plum/55">
             Step {String(index + 1).padStart(2, "0")}
           </span>
-          <IconBeltKnot className="h-4 w-4 text-plum/35" size={16} />
+          <span
+            className="infographic-knot inline-flex"
+            style={{ "--infographic-delay": `${index * 0.2}s` } as CSSProperties}
+          >
+            <IconBeltKnot className="h-4 w-4 text-plum/35" size={16} />
+          </span>
         </div>
 
-        <BeltIllustration
-          beltColor={stage.beltColor}
-          shadowColor={stage.shadowColor}
-          idSuffix={`infographic-${stage.id}`}
-          label={stage.beltName}
-          interactive={isCurrent}
-          className={cn(isCurrent && "orange-belt-sway")}
-        />
+        <span
+          className={cn(
+            "infographic-belt-loop",
+            isCurrent && "infographic-belt-loop--current",
+          )}
+          style={{ "--infographic-delay": `${index * 0.32}s` } as CSSProperties}
+        >
+          <BeltIllustration
+            beltColor={stage.beltColor}
+            shadowColor={stage.shadowColor}
+            idSuffix={`infographic-${layout}-${stage.id}`}
+            label={stage.beltName}
+            interactive={isCurrent}
+            className={cn(isCurrent && "orange-belt-sway")}
+          />
+        </span>
 
         <Sticker
           accent={accentSticker[stage.decorativeAccent]}
@@ -244,9 +293,11 @@ function MilestoneInfographicCard({
 
       {isCurrent && stage.celebrationLine ? (
         <div className="relative mt-3 rounded-scrapbook-lg border border-karate-orange/25 bg-karate-orange/8 px-2.5 py-2 text-center">
-          <Sticker accent="orange" tilt="right" className="mb-1 text-[0.6rem]">
-            Achieved!
-          </Sticker>
+          <span className="infographic-achieved-bob mb-1 inline-block">
+            <Sticker accent="orange" tilt="right" className="text-[0.6rem]">
+              Achieved!
+            </Sticker>
+          </span>
           <p className="font-display text-xs font-semibold text-plum sm:text-sm">
             {stage.celebrationLine}
           </p>
@@ -279,11 +330,13 @@ function MilestoneInfographicCard({
           <span
             aria-hidden
             className={cn(
-              "mt-1 w-1 flex-1 min-h-[2.5rem] rounded-pill",
+              "relative mt-1 w-1 min-h-[2.5rem] flex-1 overflow-hidden rounded-pill",
               spinePast ? "bg-gradient-to-b from-mint/70 to-karate-orange/50" : "bg-lavender/25",
               index === currentIndex && "from-karate-orange/80 to-lavender/30",
             )}
-          />
+          >
+            {spinePast ? <span className="infographic-spine-sheen" /> : null}
+          </span>
         ) : null}
       </div>
       <div className="pb-8">{cardBody}</div>
@@ -322,14 +375,15 @@ export function KarateRoadmapJourney({ milestones }: KarateRoadmapJourneyProps) 
         className="relative overflow-hidden rounded-scrapbook-2xl border-2 border-lavender/30 bg-gradient-to-br from-white/92 via-cream/95 to-lavender/10 p-4 shadow-[var(--shadow-paper)] sm:p-6 lg:p-8"
         aria-label="Karate belt milestone infographic"
       >
-        <IconKarateStance
-          className="pointer-events-none absolute -right-2 -top-1 h-16 w-16 text-karate-orange/10 sm:h-20 sm:w-20"
-          size={80}
-        />
-        <IconKarateStance
-          className="pointer-events-none absolute -bottom-3 -left-3 h-14 w-14 rotate-12 text-lavender/15"
-          size={56}
-        />
+        <span className="infographic-decor-float pointer-events-none absolute -right-2 -top-1" aria-hidden>
+          <IconKarateStance className="h-16 w-16 text-karate-orange/10 sm:h-20 sm:w-20" size={80} />
+        </span>
+        <span
+          className="infographic-decor-float infographic-decor-float--delay pointer-events-none absolute -bottom-3 -left-3"
+          aria-hidden
+        >
+          <IconKarateStance className="h-14 w-14 rotate-12 text-lavender/15" size={56} />
+        </span>
 
         <InfographicLegend />
 

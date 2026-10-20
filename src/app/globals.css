@@ -786,16 +786,39 @@ body {
   }
 }
 
+@keyframes infographic-rail-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes infographic-rail-shimmer {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(460%);
+  }
+}
+
 @keyframes infographic-node-glow {
   0%,
   100% {
+    transform: scale(1);
     box-shadow:
-      0 0 0 0 rgba(242, 140, 40, 0.28),
+      0 0 0 0 rgba(242, 140, 40, 0.35),
       var(--shadow-sticker);
   }
   50% {
+    transform: scale(1.1);
     box-shadow:
-      0 0 0 6px rgba(242, 140, 40, 0),
+      0 0 0 8px rgba(242, 140, 40, 0),
       var(--shadow-sticker);
   }
 }
@@ -811,20 +834,320 @@ body {
   }
 }
 
+@keyframes infographic-card-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(242, 140, 40, 0.14),
+      0 8px 18px rgba(242, 140, 40, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px rgba(242, 140, 40, 0.2),
+      0 14px 28px rgba(242, 140, 40, 0.2);
+  }
+}
+
+@keyframes infographic-halo {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes infographic-belt-sway {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+@keyframes infographic-belt-sway-current {
+  0%,
+  100% {
+    transform: rotate(-5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(6deg) translateY(-3px);
+  }
+}
+
+@keyframes infographic-float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes infographic-sparkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.65) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(18deg);
+  }
+}
+
+@keyframes infographic-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.82) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.22) rotate(16deg);
+  }
+}
+
+@keyframes infographic-step-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(242, 140, 40, 0.4);
+  }
+  50% {
+    transform: scale(1.45);
+    box-shadow: 0 0 0 5px rgba(242, 140, 40, 0);
+  }
+}
+
+@keyframes infographic-dash-flow {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleX(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes infographic-knot-wiggle {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes infographic-achieved-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes infographic-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.22);
+  }
+}
+
+@keyframes infographic-future-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes infographic-spine-sheen {
+  0% {
+    top: -45%;
+  }
+  100% {
+    top: 120%;
+  }
+}
+
 .infographic-rail-fill {
   width: 0;
+  overflow: hidden;
 }
 
 .infographic-rail-fill--active {
   animation: infographic-rail-fill 1.15s ease-out forwards;
 }
 
+.infographic-rail-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-mint),
+    var(--color-karate-orange),
+    var(--color-butter),
+    var(--color-karate-orange),
+    var(--color-mint)
+  );
+  background-size: 220% 100%;
+  animation: infographic-rail-shift 5.5s ease-in-out infinite;
+}
+
+.infographic-rail-shimmer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 32%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.72),
+    transparent
+  );
+  animation: infographic-rail-shimmer 2.4s ease-in-out infinite;
+}
+
 .infographic-current-node {
-  animation: infographic-node-glow 2.6s ease-in-out infinite;
+  animation: infographic-node-glow 2.4s ease-in-out infinite;
+}
+
+.infographic-rail-node--future {
+  animation: infographic-future-breathe 3.4s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-belt-dot {
+  animation: infographic-dot-pulse 2.6s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-belt-dot--current {
+  animation-duration: 1.6s;
 }
 
 .infographic-belt-reveal {
   animation: infographic-card-rise 0.5s ease-out both;
+}
+
+.infographic-current-card {
+  animation: infographic-card-glow 2.6s ease-in-out infinite;
+}
+
+.infographic-current-halo {
+  animation: infographic-halo 2.6s ease-in-out infinite;
+}
+
+.infographic-belt-loop {
+  display: inline-flex;
+  transform-origin: 50% 30%;
+  animation: infographic-belt-sway 3.6s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-belt-loop--current {
+  animation-name: infographic-belt-sway-current;
+  animation-duration: 2.1s;
+}
+
+.infographic-future-float {
+  animation: infographic-float-soft 4.6s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-summit-float {
+  animation: infographic-float-soft 5.2s ease-in-out infinite;
+}
+
+.infographic-sparkle {
+  position: absolute;
+  z-index: 2;
+  font-size: 0.75rem;
+  line-height: 1;
+  pointer-events: none;
+  animation: infographic-sparkle 2.2s ease-in-out infinite;
+}
+
+.infographic-sparkle--a {
+  top: 0.4rem;
+  right: 0.45rem;
+  color: var(--color-karate-orange);
+}
+
+.infographic-sparkle--b {
+  top: 1.7rem;
+  left: 0.35rem;
+  color: var(--color-butter);
+  animation-delay: 0.7s;
+}
+
+.infographic-sparkle--c {
+  right: 0.5rem;
+  bottom: 2.6rem;
+  color: var(--color-lavender, #cdb8ff);
+  animation-delay: 1.35s;
+}
+
+.infographic-dream-star,
+.infographic-summit-icon {
+  display: inline-block;
+  transform-origin: center;
+  animation: infographic-star-twinkle 2.5s ease-in-out infinite;
+}
+
+.infographic-step-current {
+  animation: infographic-step-pulse 1.8s ease-in-out infinite;
+}
+
+.infographic-dash {
+  animation: infographic-dash-flow 1.7s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-knot {
+  transform-origin: center;
+  animation: infographic-knot-wiggle 3.8s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-achieved-bob {
+  animation: infographic-achieved-bob 2.2s ease-in-out infinite;
+}
+
+.infographic-legend-icon {
+  animation: infographic-float-soft 3.1s ease-in-out var(--infographic-delay, 0s) infinite;
+}
+
+.infographic-decor-float {
+  animation: infographic-float-soft 5.5s ease-in-out infinite;
+}
+
+.infographic-decor-float--delay {
+  animation-delay: 0.9s;
+}
+
+.infographic-spine-sheen {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 42%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  animation: infographic-spine-sheen 1.7s linear infinite;
 }
 
 .infographic-detail-panel {
@@ -885,13 +1208,41 @@ body {
   }
 
   .infographic-rail-fill--active,
+  .infographic-rail-gradient,
+  .infographic-rail-shimmer,
   .infographic-current-node,
+  .infographic-rail-node--future,
+  .infographic-belt-dot,
   .infographic-belt-reveal,
+  .infographic-current-card,
+  .infographic-current-halo,
+  .infographic-belt-loop,
+  .infographic-future-float,
+  .infographic-summit-float,
+  .infographic-sparkle,
+  .infographic-dream-star,
+  .infographic-summit-icon,
+  .infographic-step-current,
+  .infographic-dash,
+  .infographic-knot,
+  .infographic-achieved-bob,
+  .infographic-legend-icon,
+  .infographic-decor-float,
+  .infographic-spine-sheen,
   .infographic-detail-panel {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .infographic-rail-fill--active {
     width: var(--infographic-fill, 33%);
+  }
+
+  .infographic-rail-shimmer,
+  .infographic-spine-sheen,
+  .infographic-sparkle {
+    opacity: 0;
   }
 
 }
