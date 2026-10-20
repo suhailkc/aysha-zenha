@@ -1,4 +1,5 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteNameTitle } from "@/components/layout/SiteNameTitle";
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
@@ -40,6 +41,7 @@ export function ScrapbookShell({ children, className }: ScrapbookShellProps) {
         <a href="#site-main" className="skip-link">
           Skip to main content
         </a>
+        <SiteNameTitle />
         {children}
         <SiteFooter />
       </div>
