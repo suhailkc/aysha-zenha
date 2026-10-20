@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
+/* ── Design tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-lavender: #cdb8ff;
+  --color-bubblegum: #ffb6d5;
+  --color-mint: #b8ebd2;
+  --color-butter: #ffe69a;
+  --color-cream: #fff9f0;
+  --color-plum: #382b4a;
+  --color-text-secondary: #6d6280;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-plum);
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-pill: 9999px;
+
+  --shadow-paper:
+    0 1px 2px rgba(56, 43, 74, 0.06), 0 4px 12px rgba(56, 43, 74, 0.08);
+  --shadow-paper-lifted:
+    0 2px 4px rgba(56, 43, 74, 0.06), 0 12px 28px rgba(56, 43, 74, 0.1);
+  --shadow-sticker: 0 2px 6px rgba(56, 43, 74, 0.12);
+
+  --space-touch-min: 2.75rem;
+
+  --focus-ring: 0 0 0 3px var(--color-cream), 0 0 0 5px var(--color-lavender);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-lavender: var(--color-lavender);
+  --color-bubblegum: var(--color-bubblegum);
+  --color-mint: var(--color-mint);
+  --color-butter: var(--color-butter);
+  --color-cream: var(--color-cream);
+  --color-plum: var(--color-plum);
+  --color-text-secondary: var(--color-text-secondary);
+
+  --font-sans: var(--font-nunito), "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-display: var(--font-fredoka), "Fredoka", ui-rounded, system-ui, sans-serif;
+
+  --radius-scrapbook-sm: var(--radius-sm);
+  --radius-scrapbook-md: var(--radius-md);
+  --radius-scrapbook-lg: var(--radius-lg);
+  --radius-scrapbook-xl: var(--radius-xl);
+  --radius-scrapbook-2xl: var(--radius-2xl);
+
+  --shadow-paper: var(--shadow-paper);
+  --shadow-paper-lifted: var(--shadow-paper-lifted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ── Base ── */
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
+  min-height: 100%;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display), "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+/* ── Scrapbook page background ── */
+.scrapbook-bg {
+  position: relative;
+  min-height: 100%;
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 10% 0%,
+      rgba(205, 184, 255, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 45% at 95% 15%,
+      rgba(255, 182, 213, 0.28),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 85% 95%,
+      rgba(184, 235, 210, 0.25),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 50% 35% at 5% 90%,
+      rgba(255, 230, 154, 0.3),
+      transparent 40%
+    );
+}
+
+.scrapbook-bg::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ── Paper card surface ── */
+.paper-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(56, 43, 74, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-paper);
+}
+
+/* ── Photo frames (for future gallery) ── */
+.photo-frame-circle {
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: var(--shadow-paper-lifted);
+  overflow: hidden;
+}
+
+.photo-frame-scrapbook {
+  border-radius: 62% 38% 52% 48% / 48% 55% 45% 52%;
+  border: 3px solid white;
+  box-shadow: var(--shadow-paper-lifted);
+  overflow: hidden;
+}
+
+/* ── Focus ── */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: 2px solid transparent;
+}
+
+/* ── Primary button base (shared with component) ── */
+.btn-primary {
+  display: inline-flex;
+  min-height: var(--space-touch-min);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(56, 43, 74, 0.12);
+  background: var(--color-bubblegum);
+  color: var(--color-plum);
+  font-family: var(--font-display), "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  box-shadow: var(--shadow-paper);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: #ffc4e0;
+  box-shadow: var(--shadow-paper-lifted);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:hover,
+  .btn-primary:active {
+    transform: none;
+  }
 }
