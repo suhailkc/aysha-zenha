@@ -22,7 +22,10 @@ export function GalleryPreviewSection() {
           title={galleryPreview.heading}
           subtitle={galleryPreview.subtitle}
         />
-        <PrimaryButton href="/gallery" className="shrink-0 self-start sm:self-auto">
+        <PrimaryButton
+          href="/gallery"
+          className="w-full shrink-0 self-stretch sm:w-auto sm:self-auto"
+        >
           {galleryPreview.cta}
         </PrimaryButton>
       </div>

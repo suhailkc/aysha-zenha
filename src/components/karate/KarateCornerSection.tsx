@@ -41,14 +41,14 @@ export function KarateCornerSection() {
 
       <PaperCard
         elevated
-        className="relative overflow-visible border-karate-orange/20 bg-gradient-to-br from-white/80 via-lavender/15 to-mint/20 p-6 sm:p-10"
+        className="relative overflow-hidden border-karate-orange/20 bg-gradient-to-br from-white/80 via-lavender/15 to-mint/20 p-4 sm:overflow-visible sm:p-10"
       >
         <DecorativeDoodle
           variant="heart"
           size={20}
           className="absolute right-4 top-4 text-bubblegum/70"
         />
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-8">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-8">
           <div className="flex flex-col items-center gap-4 text-center lg:items-start lg:text-left">
             <Sticker accent="orange" tilt="right">
               Verified achievement

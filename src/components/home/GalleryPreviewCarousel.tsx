@@ -2,6 +2,7 @@
 
 import { GalleryPreviewPhoto } from "@/components/home/GalleryPreviewPhoto";
 import { GalleryPreviewPlaceholder } from "@/components/home/GalleryPreviewPlaceholder";
+import { CarouselPagination } from "@/components/ui/CarouselPagination";
 import { cn } from "@/lib/cn";
 import type { GalleryPhoto } from "@/types/content";
 import {
@@ -378,45 +379,22 @@ export function GalleryPreviewCarousel({
       </div>
 
       {canScroll ? (
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+        <div className="mt-2">
           <p className="sr-only" aria-live="polite">
             Showing memories {logicalStartIndex + 1} to{" "}
             {Math.min(logicalStartIndex + visibleCount, slideCount)} of{" "}
             {slideCount}
           </p>
-          <div
-            className="flex max-w-full flex-wrap items-center justify-center gap-1 sm:gap-2"
-            role="tablist"
-            aria-label="Choose gallery preview slide"
-          >
-            {Array.from({ length: pageCount }, (_, page) => {
-              const selected = page === logicalStartIndex;
-              return (
-                <button
-                  key={page}
-                  type="button"
-                  role="tab"
-                  aria-selected={selected}
-                  aria-label={`Show memories starting at photo ${page + 1}`}
-                  className={cn(
-                    "inline-flex min-h-9 min-w-9 items-center justify-center rounded-full sm:min-h-10 sm:min-w-10",
-                    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lavender",
-                  )}
-                  onClick={() => goToPage(page)}
-                >
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "h-2.5 w-2.5 rounded-full border border-lavender/40 transition-colors",
-                      selected
-                        ? "bg-lavender"
-                        : "bg-white/80 hover:bg-lavender/35",
-                    )}
-                  />
-                </button>
-              );
-            })}
-          </div>
+          <CarouselPagination
+            pageCount={pageCount}
+            activePage={logicalStartIndex}
+            onSelectPage={goToPage}
+            ariaLabel="Choose gallery preview slide"
+            compactLabel="gallery slide"
+            getPageAriaLabel={(page) =>
+              `Show memories starting at photo ${page + 1}`
+            }
+          />
         </div>
       ) : null}
     </div>

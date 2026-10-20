@@ -9,8 +9,9 @@ export function LoveNotesPreviewSection() {
 
   return (
     <section
+      id="love-notes"
       aria-labelledby="love-notes-heading"
-      className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12"
+      className="mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-8 sm:px-6 sm:py-12"
     >
       <SectionHeading
         as="h2"

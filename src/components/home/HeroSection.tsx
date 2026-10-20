@@ -36,11 +36,11 @@ export function HeroSection() {
           <Sticker accent="lavender" tilt="right" className="w-fit achievement-pop">
             {heroKarate.championLabel}
           </Sticker>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <PrimaryButton href="#memories-preview">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+            <PrimaryButton href="#memories-preview" className="w-full sm:w-auto">
               {hero.exploreMemoriesLabel}
             </PrimaryButton>
-            <SecondaryButton href={heroKarate.dojoLinkHref}>
+            <SecondaryButton href={heroKarate.dojoLinkHref} className="w-full sm:w-auto">
               {heroKarate.dojoLinkLabel}
             </SecondaryButton>
           </div>

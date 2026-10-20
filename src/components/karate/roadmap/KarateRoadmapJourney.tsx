@@ -344,6 +344,146 @@ function MilestoneInfographicCard({
   );
 }
 
+function MilestoneTimelineCompactRow({
+  stage,
+  index,
+}: {
+  stage: KarateBeltStage;
+  index: number;
+}) {
+  const isPast = stage.status === "previous-stage";
+  const isSummit = stage.status === "long-term-goal";
+
+  return (
+    <li className="list-none">
+      <article
+        className={cn(
+          "flex items-center gap-3 rounded-scrapbook-lg border border-plum/10 bg-white/85 px-3 py-2.5 shadow-[var(--shadow-paper)]",
+          isSummit && "border-plum/20 bg-gradient-to-r from-lavender/15 to-butter/10",
+        )}
+      >
+        <span
+          aria-hidden
+          className="h-9 w-1.5 shrink-0 rounded-pill"
+          style={{ background: stage.beltColor }}
+        />
+        <div className="min-w-0 flex-1">
+          <p className="font-display text-sm font-bold leading-snug text-plum">
+            {stage.beltName}
+          </p>
+          <p className="truncate text-xs font-medium text-secondary">
+            {stage.stageTitle}
+          </p>
+        </div>
+        <span
+          className={cn(
+            "shrink-0 text-right font-display text-[0.62rem] font-bold uppercase leading-tight tracking-wide",
+            isPast ? "text-mint" : "text-lavender",
+          )}
+        >
+          {isPast ? "Behind" : isSummit ? "Dream" : "Ahead"}
+        </span>
+      </article>
+      <span className="sr-only">
+        Step {String(index + 1).padStart(2, "0")}: {stage.statusLabel}
+      </span>
+    </li>
+  );
+}
+
+function MobileBeltTimeline({
+  milestones,
+  currentIndex,
+}: {
+  milestones: KarateBeltStage[];
+  currentIndex: number;
+}) {
+  if (currentIndex < 0) {
+    return (
+      <ol className="relative m-0 list-none p-0">
+        {milestones.map((stage, i) => (
+          <MilestoneInfographicCard
+            key={stage.id}
+            stage={stage}
+            index={i}
+            layout="timeline"
+            revealIndex={i}
+            isLast={i === milestones.length - 1}
+            currentIndex={currentIndex}
+          />
+        ))}
+      </ol>
+    );
+  }
+
+  const pastStages =
+    currentIndex > 0 ? milestones.slice(0, currentIndex) : [];
+  const currentStage = milestones[currentIndex];
+  const futureStages = milestones.slice(currentIndex + 1);
+
+  const detailsSummaryClass =
+    "flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 rounded-scrapbook-lg border border-lavender/30 bg-white/70 px-3 py-2 font-display text-sm font-semibold text-plum marker:content-none [&::-webkit-details-marker]:hidden";
+
+  return (
+    <ol className="relative m-0 list-none space-y-3 p-0">
+      {pastStages.length > 0 ? (
+        <li className="list-none">
+          <details className="group rounded-scrapbook-xl border border-mint/25 bg-mint/10 p-2">
+            <summary className={detailsSummaryClass}>
+              <span>Steps behind</span>
+              <span className="rounded-scrapbook-pill bg-white/80 px-2 py-0.5 text-xs font-bold text-plum/75">
+                {pastStages.length}
+              </span>
+            </summary>
+            <ul className="mt-2 space-y-2">
+              {pastStages.map((stage, i) => (
+                <MilestoneTimelineCompactRow
+                  key={stage.id}
+                  stage={stage}
+                  index={i}
+                />
+              ))}
+            </ul>
+          </details>
+        </li>
+      ) : null}
+
+      {currentStage ? (
+        <MilestoneInfographicCard
+          stage={currentStage}
+          index={currentIndex}
+          layout="timeline"
+          revealIndex={currentIndex}
+          isLast={currentIndex === milestones.length - 1}
+          currentIndex={currentIndex}
+        />
+      ) : null}
+
+      {futureStages.length > 0 ? (
+        <li className="list-none">
+          <details className="group rounded-scrapbook-xl border border-lavender/25 bg-lavender/10 p-2">
+            <summary className={detailsSummaryClass}>
+              <span>Belts still ahead</span>
+              <span className="rounded-scrapbook-pill bg-white/80 px-2 py-0.5 text-xs font-bold text-plum/75">
+                {futureStages.length}
+              </span>
+            </summary>
+            <ul className="mt-2 space-y-2">
+              {futureStages.map((stage, i) => (
+                <MilestoneTimelineCompactRow
+                  key={stage.id}
+                  stage={stage}
+                  index={currentIndex + 1 + i}
+                />
+              ))}
+            </ul>
+          </details>
+        </li>
+      ) : null}
+    </ol>
+  );
+}
+
 export function KarateRoadmapJourney({ milestones }: KarateRoadmapJourneyProps) {
   const [drawActive, setDrawActive] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -407,23 +547,12 @@ export function KarateRoadmapJourney({ milestones }: KarateRoadmapJourneyProps) 
           ))}
         </ol>
 
-        <ol className="relative m-0 list-none p-0 lg:hidden">
-          <span
-            aria-hidden
-            className="absolute bottom-4 left-[1.35rem] top-4 w-1 rounded-pill bg-lavender/20 sm:left-[1.6rem]"
+        <div className="lg:hidden">
+          <MobileBeltTimeline
+            milestones={milestones}
+            currentIndex={currentIndex}
           />
-          {milestones.map((stage, i) => (
-            <MilestoneInfographicCard
-              key={stage.id}
-              stage={stage}
-              index={i}
-              layout="timeline"
-              revealIndex={i}
-              isLast={i === milestones.length - 1}
-              currentIndex={currentIndex}
-            />
-          ))}
-        </ol>
+        </div>
       </div>
 
       <p className="mt-5 text-center text-sm text-secondary">

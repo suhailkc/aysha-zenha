@@ -1,5 +1,6 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteNameTitle } from "@/components/layout/SiteNameTitle";
+import { SiteNavigation } from "@/components/layout/SiteNavigation";
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
@@ -42,7 +43,8 @@ export function ScrapbookShell({ children, className }: ScrapbookShellProps) {
           Skip to main content
         </a>
         <SiteNameTitle />
-        {children}
+        <SiteNavigation />
+        <div className="site-content-pad flex flex-1 flex-col">{children}</div>
         <SiteFooter />
       </div>
     </div>

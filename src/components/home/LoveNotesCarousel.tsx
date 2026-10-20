@@ -1,6 +1,7 @@
 "use client";
 
 import { LoveNoteCard } from "@/components/messages/LoveNoteCard";
+import { CarouselPagination } from "@/components/ui/CarouselPagination";
 import { loveNoteTiltClass } from "@/lib/love-note-styles";
 import { cn } from "@/lib/cn";
 import type { FamilyMessage } from "@/types/content";
@@ -328,45 +329,22 @@ export function LoveNotesCarousel({ notes }: LoveNotesCarouselProps) {
       </div>
 
       {canScroll ? (
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-3">
+        <div className="mt-4 sm:mt-6">
           <p className="sr-only" aria-live="polite">
             Showing notes {logicalStartIndex + 1} to{" "}
             {Math.min(logicalStartIndex + visibleCount, noteCount)} of{" "}
             {noteCount}
           </p>
-          <div
-            className="flex max-w-full flex-wrap items-center justify-center gap-1 sm:gap-2"
-            role="tablist"
-            aria-label="Choose love note slide"
-          >
-            {Array.from({ length: pageCount }, (_, page) => {
-              const selected = page === logicalStartIndex;
-              return (
-                <button
-                  key={page}
-                  type="button"
-                  role="tab"
-                  aria-selected={selected}
-                  aria-label={`Show love notes starting at note ${page + 1}`}
-                  className={cn(
-                    "inline-flex min-h-11 min-w-11 items-center justify-center rounded-full",
-                    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lavender",
-                  )}
-                  onClick={() => goToPage(page)}
-                >
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "h-2.5 w-2.5 rounded-full border border-lavender/40 transition-colors",
-                      selected
-                        ? "bg-lavender"
-                        : "bg-white/80 hover:bg-lavender/35",
-                    )}
-                  />
-                </button>
-              );
-            })}
-          </div>
+          <CarouselPagination
+            pageCount={pageCount}
+            activePage={logicalStartIndex}
+            onSelectPage={goToPage}
+            ariaLabel="Choose love note slide"
+            compactLabel="love note"
+            getPageAriaLabel={(page) =>
+              `Show love notes starting at note ${page + 1}`
+            }
+          />
         </div>
       ) : null}
     </div>

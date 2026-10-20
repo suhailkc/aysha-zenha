@@ -13,7 +13,7 @@ export function KarateRoadmapSection() {
     <section
       id="karate-roadmap"
       aria-labelledby="karate-roadmap-heading"
-      className="section-reveal mx-auto w-full max-w-7xl scroll-mt-24 px-4 py-8 sm:px-6 sm:py-12"
+      className="section-reveal mx-auto w-full max-w-7xl scroll-mt-24 px-4 py-6 sm:px-6 sm:py-12"
     >
       <div className="relative mb-6 flex flex-col items-center gap-3">
         <Sticker accent="orange" tilt="right" className="w-fit">

@@ -64,7 +64,7 @@ export function PhotoLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4 md:p-6"
       role="presentation"
     >
       <button
@@ -77,24 +77,30 @@ export function PhotoLightbox({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative z-10 flex w-full max-w-4xl flex-col gap-4"
+        className="relative z-10 flex max-h-[100dvh] w-full max-w-4xl flex-col gap-3 overflow-y-auto overscroll-contain rounded-t-scrapbook-2xl border border-plum/10 bg-cream/98 p-3 shadow-[var(--shadow-paper-lifted)] sm:max-h-[min(96dvh,900px)] sm:rounded-scrapbook-2xl sm:p-4"
+        style={{
+          paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+        }}
       >
-        <div className="flex items-center justify-between gap-3">
-          <p id={titleId} className="sr-only">
+        <div className="flex shrink-0 items-center justify-between gap-3">
+          <p
+            id={titleId}
+            className="font-display text-sm font-semibold text-plum sm:sr-only"
+          >
             Photo {activeIndex + 1} of {photos.length}
           </p>
           <button
             ref={closeRef}
             type="button"
             onClick={onClose}
-            className="btn-secondary ml-auto shrink-0 px-4 py-2 text-sm"
+            className="btn-secondary ml-auto min-h-11 shrink-0 px-4 py-2 text-sm"
           >
             Close
           </button>
         </div>
 
-        <figure className="paper-card relative overflow-hidden rounded-scrapbook-xl p-3 sm:p-4">
-          <div className="relative mx-auto max-h-[min(72vh,720px)] w-full overflow-hidden rounded-scrapbook-lg bg-cream/80">
+        <figure className="paper-card relative min-h-0 flex-1 overflow-hidden rounded-scrapbook-xl p-2 sm:p-4">
+          <div className="relative mx-auto max-h-[min(58dvh,720px)] w-full overflow-hidden rounded-scrapbook-lg bg-cream/80 sm:max-h-[min(72vh,720px)]">
             <PhotoWithFallback
               unoptimized
               src={photo.src}
@@ -102,35 +108,37 @@ export function PhotoLightbox({
               width={photo.width}
               height={photo.height}
               fallbackLabel={galleryPageContent.photoLoadError}
-              className="mx-auto h-auto max-h-[min(72vh,720px)] w-auto max-w-full object-contain"
+              className="mx-auto h-auto max-h-[min(58dvh,720px)] w-auto max-w-full object-contain sm:max-h-[min(72vh,720px)]"
               sizes="(max-width: 768px) 92vw, 720px"
             />
           </div>
           {photo.caption ? (
-            <figcaption className="mt-4 px-1 text-center font-display text-lg font-semibold text-plum">
+            <figcaption className="mt-3 px-1 text-center font-display text-base font-semibold leading-snug text-plum sm:mt-4 sm:text-lg">
               {photo.caption}
             </figcaption>
           ) : null}
         </figure>
 
         {showNav ? (
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex shrink-0 flex-wrap items-center justify-center gap-2 pb-1 sm:gap-3">
             <button
               type="button"
               onClick={goPrev}
               aria-label="Previous photo"
-              className="btn-secondary min-h-11 px-5 py-2 text-sm"
+              className="btn-secondary min-h-11 flex-1 px-4 py-2 text-sm sm:flex-none sm:px-5"
             >
               Previous
             </button>
-            <span className="font-display text-sm font-semibold text-cream">
+            <span
+              className="order-first w-full text-center font-display text-sm font-semibold text-plum sm:order-none sm:w-auto"
+            >
               {activeIndex + 1} / {photos.length}
             </span>
             <button
               type="button"
               onClick={goNext}
               aria-label="Next photo"
-              className="btn-secondary min-h-11 px-5 py-2 text-sm"
+              className="btn-secondary min-h-11 flex-1 px-4 py-2 text-sm sm:flex-none sm:px-5"
             >
               Next
             </button>

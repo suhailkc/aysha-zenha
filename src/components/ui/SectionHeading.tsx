@@ -32,8 +32,9 @@ export function SectionHeading({
         className={cn(
           "font-display font-semibold tracking-tight text-plum",
           Tag === "h1" &&
-            "text-4xl leading-tight text-balance sm:text-5xl md:text-6xl",
-          Tag === "h2" && "text-3xl leading-snug sm:text-4xl",
+            "text-[1.75rem] leading-tight text-balance min-[360px]:text-3xl sm:text-5xl md:text-6xl",
+          Tag === "h2" &&
+            "text-[1.625rem] leading-snug text-balance min-[360px]:text-3xl sm:text-4xl",
           Tag === "h3" && "text-2xl leading-snug sm:text-3xl",
         )}
       >
