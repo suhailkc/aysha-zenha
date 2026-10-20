@@ -1,33 +1,82 @@
 [
   {
-    "id": "placeholder-1",
-    "author": "Family",
-    "message": "Replace this note in src/data/messages.json with your own words for Aysha.",
+    "id": "immachi",
+    "author": "Immachi",
+    "message": "Every day you make our home brighter, Aysha. We are so proud of the kind, brave girl you are becoming.",
     "accent": "lavender",
     "sticker": "heart",
     "category": "love"
   },
   {
-    "id": "placeholder-2",
-    "author": "Someone who loves you",
-    "message": "Add another short message here. Keep it sweet and skip private details.",
+    "id": "ippachi",
+    "author": "Ippachi",
+    "message": "Keep showing up with that focus of yours, champ. Your orange belt did not happen by luck; it happened because you worked for it.",
     "accent": "mint",
     "sticker": "star",
     "category": "encouragement"
   },
   {
-    "id": "placeholder-3",
-    "message": "You can leave the sender label off if you prefer a surprise note with no name.",
+    "id": "neenu",
+    "author": "Neenu",
+    "message": "You are my favorite person to laugh with. Love you to the moon and back, sis.",
+    "accent": "pink",
+    "sticker": "heart",
+    "category": "love"
+  },
+  {
+    "id": "kuttimon",
+    "author": "Kuttimon",
+    "message": "Whenever I see you train, I think: little warrior, big heart. Keep making us proud.",
     "accent": "butter",
-    "sticker": "sparkle",
+    "sticker": "sun",
     "category": "cheer"
   },
   {
-    "id": "placeholder-4",
-    "author": "Your crew",
-    "message": "Reorder cards by moving objects in the JSON array. Remove an object to delete a note.",
+    "id": "nasri",
+    "author": "Nasri",
+    "message": "You have this glow that makes everyone around you smile. Never stop being exactly you.",
     "accent": "pink",
     "sticker": "flower",
+    "category": "gratitude"
+  },
+  {
+    "id": "shani",
+    "author": "Shani",
+    "message": "Discipline looks good on you, Aysha. Cheering for every kick, every bow, and every brave try.",
+    "accent": "lavender",
+    "sticker": "sparkle",
+    "category": "encouragement"
+  },
+  {
+    "id": "shebi",
+    "author": "Shebi",
+    "message": "Birthday hugs! Save room for cake and save some energy for whatever fun thing you pick next.",
+    "accent": "butter",
+    "sticker": "heart",
     "category": "birthday"
+  },
+  {
+    "id": "aydi",
+    "author": "Aydi",
+    "message": "The award still goes to you. Cannot wait for our next silly adventure together.",
+    "accent": "mint",
+    "sticker": "star",
+    "category": "cheer"
+  },
+  {
+    "id": "niju",
+    "author": "Niju",
+    "message": "You inspire me more than you know. Go get whatever dream you are chasing this year.",
+    "accent": "pink",
+    "sticker": "flower",
+    "category": "encouragement"
+  },
+  {
+    "id": "izu",
+    "author": "Izu",
+    "message": "Team Aysha forever! You are the coolest and we are lucky to have you.",
+    "accent": "lavender",
+    "sticker": "sparkle",
+    "category": "cheer"
   }
 ]
