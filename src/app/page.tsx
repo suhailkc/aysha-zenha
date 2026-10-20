@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { LoveNotesPreviewSection } from "@/components/home/LoveNotesPreviewSection";
 import { MiniIntroSection } from "@/components/home/MiniIntroSection";
 import { KarateCornerSection } from "@/components/karate/KarateCornerSection";
+import { KarateRoadmapSection } from "@/components/karate/KarateRoadmapSection";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <KarateCornerSection />
       <MiniIntroSection />
+      <KarateRoadmapSection />
       <GalleryPreviewSection />
       <LoveNotesPreviewSection />
     </main>

@@ -611,6 +611,186 @@ body {
   box-shadow: inset 0 0 0 2px rgba(242, 140, 40, 0.12);
 }
 
+/* ── Karate roadmap adventure map ── */
+@keyframes roadmap-trail-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes roadmap-belt-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes roadmap-summit-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.roadmap-trail-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: roadmap-trail-draw 1.35s ease-out forwards;
+}
+
+.roadmap-trail-draw--shadow {
+  animation-duration: 1.5s;
+}
+
+.roadmap-trail-draw--accent {
+  animation-delay: 0.08s;
+}
+
+.roadmap-belt-reveal {
+  animation: roadmap-belt-reveal 0.45s ease-out both;
+}
+
+.roadmap-future-milestone:hover,
+.roadmap-future-milestone:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-paper-lifted), 0 0 0 1px rgba(205, 184, 255, 0.35);
+}
+
+.roadmap-summit-star {
+  transform-origin: center;
+  animation: roadmap-summit-star-twinkle 4.5s ease-in-out infinite;
+}
+
+.roadmap-summit-star--delay {
+  animation-delay: 1.2s;
+}
+
+.roadmap-summit-star--delay2 {
+  animation-delay: 2.1s;
+}
+
+@keyframes roadmap-summit-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes roadmap-trail-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  40% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes roadmap-detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.roadmap-summit-glow ellipse:first-of-type {
+  transform-origin: 40px 88px;
+  animation: roadmap-summit-pulse 6s ease-in-out infinite;
+}
+
+.roadmap-trail-sparkle .roadmap-trail-accent {
+  animation: roadmap-trail-twinkle 0.85s ease-out 2;
+}
+
+.roadmap-detail-panel {
+  animation: roadmap-detail-in 0.35s ease-out both;
+}
+
+.roadmap-milestone-btn:hover,
+.roadmap-milestone-btn:focus-visible {
+  box-shadow: var(--shadow-paper-lifted);
+}
+
+.roadmap-step-stone {
+  transition: transform 0.2s ease;
+}
+
+/* ── Karate milestone infographic ── */
+@keyframes infographic-rail-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--infographic-fill, 33%);
+  }
+}
+
+@keyframes infographic-node-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(242, 140, 40, 0.28),
+      var(--shadow-sticker);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(242, 140, 40, 0),
+      var(--shadow-sticker);
+  }
+}
+
+@keyframes infographic-card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.infographic-rail-fill {
+  width: 0;
+}
+
+.infographic-rail-fill--active {
+  animation: infographic-rail-fill 1.15s ease-out forwards;
+}
+
+.infographic-current-node {
+  animation: infographic-node-glow 2.6s ease-in-out infinite;
+}
+
+.infographic-belt-reveal {
+  animation: infographic-card-rise 0.5s ease-out both;
+}
+
+.infographic-detail-panel {
+  animation: roadmap-detail-in 0.35s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .orange-belt-sway,
   .group:hover .orange-belt-sway,
@@ -639,5 +819,33 @@ body {
     animation: none;
     opacity: 0;
   }
+
+  .roadmap-summit-glow ellipse:first-of-type,
+  .roadmap-trail-sparkle .roadmap-trail-accent,
+  .roadmap-detail-panel,
+  .roadmap-trail-draw,
+  .roadmap-belt-reveal,
+  .roadmap-summit-star {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+  .roadmap-future-milestone:hover,
+  .roadmap-future-milestone:focus-visible {
+    transform: none;
+  }
+
+  .infographic-rail-fill--active,
+  .infographic-current-node,
+  .infographic-belt-reveal,
+  .infographic-detail-panel {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    width: var(--infographic-fill, 33%);
+  }
+
 }
 

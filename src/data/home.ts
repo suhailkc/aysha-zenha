@@ -54,13 +54,16 @@ export const homeContent = {
     cardBlurb:
       "Aysha loves karate. Her latest belt is Orange Belt, celebrated here with stickers, not scoreboards.",
     values: ["Focus", "Discipline", "Courage"] as const,
-    ctaLabel: "Explore my memories",
-    ctaHref: "/gallery",
+    ctaLabel: "Karate Journey",
+    ctaHref: "#karate-roadmap",
+    memoriesLabel: "Explore my memories",
+    memoriesHref: "/gallery",
   },
   heroKarate: {
     editionSticker: "The Little Warrior Edition",
     championLabel: "Orange Belt Champion",
-    dojoLinkLabel: "Visit the Dojo of Dreams",
+    dojoLinkLabel: "Karate Journey",
+    dojoLinkHref: "#karate-roadmap",
   },
   galleryPreview: {
     heading: "Little moments, BIG memories",

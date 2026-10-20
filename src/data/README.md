@@ -3,6 +3,7 @@
 | Feature | Data file | Route |
 |---------|-----------|-------|
 | Home copy and Karate Corner | `home.ts` | `/` |
+| Karate belt roadmap (home section `#karate-roadmap`) | `karate-roadmap.ts` | `/` |
 | Family love notes (home preview) | `messages.json` | `/` |
 | Karate Journey milestones | `karate-journey.json` (planned) | `/karate` |
 | Memory gallery | `gallery-entries.json` + manifest | `/gallery` |

@@ -83,3 +83,62 @@ export function IconStarBadge({ className, size = 20 }: IconProps) {
     </svg>
   );
 }
+
+/** Karate gi silhouette — decorative milestone infographic accent. */
+export function IconKarateStance({ className, size = 20 }: IconProps) {
+  return (
+    <svg
+      aria-hidden
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      className={cn("shrink-0", className)}
+    >
+      <circle cx="12" cy="5.5" r="2.8" fill="currentColor" opacity="0.9" />
+      <path
+        d="M8.5 9.5h7l1.2 3.5-2.2 1.2v6.8h-2.5v-4.2l-2 2.2-1.6-1.4 2.4-2.6V9.5z"
+        fill="currentColor"
+        opacity="0.88"
+      />
+      <path
+        d="M6.5 11.5l2.5-1 1 2.2M17.5 11.5l-2.5-1-1 2.2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M9 21.5h6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+    </svg>
+  );
+}
+
+/** Wrapped belt knot — node marker for timeline infographics. */
+export function IconBeltKnot({ className, size = 20 }: IconProps) {
+  return (
+    <svg
+      aria-hidden
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      className={cn("shrink-0", className)}
+    >
+      <rect x="2" y="10" width="20" height="4" rx="1" fill="currentColor" opacity="0.85" />
+      <ellipse cx="12" cy="12" rx="3.5" ry="2.8" fill="currentColor" />
+      <path
+        d="M10.5 14v4M13.5 14v3.5M9 17l-2 3M15 17l2 3"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+    </svg>
+  );
+}

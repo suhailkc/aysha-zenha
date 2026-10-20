@@ -41,7 +41,7 @@ export function HeroSection() {
             <PrimaryButton href="#memories-preview">
               {hero.exploreMemoriesLabel}
             </PrimaryButton>
-            <SecondaryButton href="#karate-corner">
+            <SecondaryButton href={heroKarate.dojoLinkHref}>
               {heroKarate.dojoLinkLabel}
             </SecondaryButton>
             <SurprisePop label={hero.surpriseLabel} />

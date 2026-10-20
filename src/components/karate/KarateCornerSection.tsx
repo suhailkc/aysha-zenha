@@ -5,6 +5,7 @@ import { OrangeBeltIllustration } from "@/components/karate/OrangeBeltIllustrati
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { PaperCard } from "@/components/ui/PaperCard";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import { SecondaryButton } from "@/components/ui/SecondaryButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Sticker } from "@/components/ui/Sticker";
 import { homeContent } from "@/data/home";
@@ -78,9 +79,14 @@ export function KarateCornerSection() {
                 <KarateValueBadge key={value} label={value} />
               ))}
             </div>
-            <PrimaryButton href={karateCorner.ctaHref} className="mt-2">
-              {karateCorner.ctaLabel}
-            </PrimaryButton>
+            <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
+              <PrimaryButton href={karateCorner.ctaHref}>
+                {karateCorner.ctaLabel}
+              </PrimaryButton>
+              <SecondaryButton href={karateCorner.memoriesHref}>
+                {karateCorner.memoriesLabel}
+              </SecondaryButton>
+            </div>
           </div>
         </div>
       </PaperCard>
