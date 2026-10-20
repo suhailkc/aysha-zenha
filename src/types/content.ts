@@ -60,3 +60,11 @@ export type QuizQuestion = {
   successMessage: string;
   wrongMessage: string;
 };
+
+export type {
+  DailySprinkleItem,
+  DailySprinkleKind,
+  StickerDiscoveryItem,
+  SurpriseAccent,
+  SurpriseDoodleId,
+} from "@/data/surprises";

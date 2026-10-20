@@ -60,9 +60,3 @@ export const homeContent = {
   },
 } as const;
 
-export const surpriseMessages = [
-  "You found the secret sparkle button! Gold star for you.",
-  "Plot twist: you are officially awesome today.",
-  "Sending a virtual sticker parade your way!",
-  "The universe says: keep being wonderfully you.",
-] as const;

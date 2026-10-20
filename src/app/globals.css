@@ -348,3 +348,126 @@ body {
   border: 2px dashed rgba(56, 43, 74, 0.15);
   box-shadow: var(--shadow-paper);
 }
+
+/* ── Interactive surprises ── */
+.surprise-reveal-dialog {
+  animation: surprise-pop-in 0.28s ease-out;
+}
+
+.surprise-reveal-inline,
+.daily-sprinkle-reveal {
+  animation: surprise-pop-in 0.24s ease-out;
+}
+
+@keyframes surprise-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surprise-reveal-dialog,
+  .surprise-reveal-inline,
+  .daily-sprinkle-reveal {
+    animation: none;
+  }
+}
+
+.happy-envelope {
+  width: min(100%, 14rem);
+  perspective: 600px;
+}
+
+.happy-envelope__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.happy-envelope__body {
+  fill: rgba(255, 255, 255, 0.9);
+  stroke: rgba(56, 43, 74, 0.18);
+  stroke-width: 2;
+}
+
+.happy-envelope__inner-fold {
+  fill: none;
+  stroke: rgba(56, 43, 74, 0.12);
+  stroke-width: 1.5;
+}
+
+.happy-envelope__flap {
+  fill: var(--color-lavender);
+  stroke: rgba(56, 43, 74, 0.16);
+  stroke-width: 2;
+  transform-origin: 100px 50px;
+  transition: transform 0.45s ease;
+}
+
+.happy-envelope__seal {
+  fill: var(--color-bubblegum);
+  stroke: rgba(56, 43, 74, 0.15);
+  stroke-width: 1.5;
+  transition: opacity 0.25s ease, transform 0.35s ease;
+}
+
+.happy-envelope__letter {
+  fill: var(--color-cream);
+  stroke: rgba(56, 43, 74, 0.12);
+  stroke-width: 1.5;
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    transform 0.45s ease 0.05s,
+    opacity 0.35s ease 0.05s;
+}
+
+.happy-envelope__letter-lines {
+  fill: none;
+  stroke: rgba(56, 43, 74, 0.2);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    transform 0.45s ease 0.08s,
+    opacity 0.35s ease 0.08s;
+}
+
+.happy-envelope--open .happy-envelope__flap {
+  transform: rotateX(160deg);
+}
+
+.happy-envelope--open .happy-envelope__seal {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.happy-envelope--open .happy-envelope__letter,
+.happy-envelope--open .happy-envelope__letter-lines {
+  transform: translateY(-6px);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .happy-envelope__flap,
+  .happy-envelope__seal,
+  .happy-envelope__letter,
+  .happy-envelope__letter-lines {
+    transition: none;
+  }
+
+  .happy-envelope--open .happy-envelope__flap {
+    transform: none;
+    opacity: 0.35;
+  }
+}
+
+.confetti-canvas {
+  pointer-events: none;
+}

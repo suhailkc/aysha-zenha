@@ -13,6 +13,7 @@ export const siteConfig = {
   nav: [
     { href: "/", label: "Home" },
     { href: "/gallery", label: "Memories" },
+    { href: "/surprises", label: "Surprises" },
     { href: "/play", label: "Fun Zone" },
     { href: "/countdown", label: "Birthday" },
     { href: "/messages", label: "Love Notes" },
