@@ -1,13 +1,10 @@
 import { ScrapbookShell } from "@/components/layout/ScrapbookShell";
 import { fontVariables } from "@/lib/fonts";
+import { rootSiteMetadata } from "@/lib/site-metadata";
 import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Aysha's Little Universe",
-  description:
-    "A personal birthday gift site for Aysha Zenha — gallery, surprises, and little joys.",
-};
+export const metadata: Metadata = rootSiteMetadata;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import { useModalLayer } from "@/lib/modal-layer";
 import type { GalleryPhoto } from "@/types/content";
 import Image from "next/image";
 import { useCallback, useEffect, useId, useRef } from "react";
@@ -34,16 +35,13 @@ export function PhotoLightbox({
     onNavigate(next);
   }, [activeIndex, onNavigate, photos.length]);
 
+  useModalLayer(true, onClose);
+
   useEffect(() => {
     closeRef.current?.focus();
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        onClose();
-      } else if (event.key === "ArrowLeft") {
+      if (event.key === "ArrowLeft") {
         event.preventDefault();
         goPrev();
       } else if (event.key === "ArrowRight") {
@@ -53,11 +51,8 @@ export function PhotoLightbox({
     };
 
     window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [goNext, goPrev, onClose]);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [goNext, goPrev]);
 
   if (!photo) {
     return null;
@@ -106,7 +101,6 @@ export function PhotoLightbox({
               height={photo.height}
               className="mx-auto h-auto max-h-[min(72vh,720px)] w-auto max-w-full object-contain"
               sizes="(max-width: 768px) 92vw, 720px"
-              priority
             />
           </div>
           {photo.caption ? (
@@ -121,6 +115,7 @@ export function PhotoLightbox({
             <button
               type="button"
               onClick={goPrev}
+              aria-label="Previous photo"
               className="btn-secondary min-h-11 px-5 py-2 text-sm"
             >
               Previous
@@ -131,6 +126,7 @@ export function PhotoLightbox({
             <button
               type="button"
               onClick={goNext}
+              aria-label="Next photo"
               className="btn-secondary min-h-11 px-5 py-2 text-sm"
             >
               Next
@@ -167,6 +163,7 @@ export function GalleryMasonryCard({
       <button
         type="button"
         onClick={() => onOpen(index)}
+        aria-label={`Open photo: ${photo.alt}`}
         className={cn(
           "group w-full text-left transition-transform duration-200 hover:-translate-y-0.5",
           rotation,

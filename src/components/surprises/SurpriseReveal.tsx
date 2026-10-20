@@ -4,7 +4,8 @@ import { PaperCard } from "@/components/ui/PaperCard";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
 import { Sticker, type StickerAccent } from "@/components/ui/Sticker";
 import { cn } from "@/lib/cn";
-import { useEffect, useId, type ReactNode } from "react";
+import { useModalLayer } from "@/lib/modal-layer";
+import { useEffect, useId, useRef, type ReactNode } from "react";
 
 type SurpriseRevealBase = {
   isOpen: boolean;
@@ -44,20 +45,16 @@ export function SurpriseReveal(props: SurpriseRevealProps) {
   } = props;
 
   const autoTitleId = useId();
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useModalLayer(isOpen && props.mode === "dialog", onClose);
 
   useEffect(() => {
     if (!isOpen || props.mode !== "dialog") {
       return;
     }
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose, props.mode]);
+    closeRef.current?.focus();
+  }, [isOpen, props.mode]);
 
   if (!isOpen) {
     return null;
@@ -135,7 +132,7 @@ export function SurpriseReveal(props: SurpriseRevealProps) {
         {children ? <div className="mt-3 text-secondary">{children}</div> : null}
         {showCloseButton ? (
           <div className="mt-6 flex justify-end">
-            <SecondaryButton type="button" onClick={onClose}>
+            <SecondaryButton ref={closeRef} type="button" onClick={onClose}>
               {closeLabel}
             </SecondaryButton>
           </div>

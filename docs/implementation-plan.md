@@ -118,7 +118,7 @@ No Route Handlers or external fetch for core features.
 1. `npm run lint` — zero errors
 2. `npm run build` — static generation succeeds
 3. Manual pass: mobile (375px), tablet, desktop
-4. Privacy pass: search codebase for address patterns, school keywords, full DOB strings, plate numbers
+4. Privacy pass: follow **`docs/privacy-and-launch-checklist.md`** (search for school, address, full DOB, etc.)
 5. Confirm no `.env` required; no network calls to third-party analytics
 6. Spot-check all gallery alts and message content with a family reviewer
 

@@ -3,19 +3,21 @@ import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scrapbookPageContent } from "@/data/scrapbook-page";
 import { getScrapbookMemories } from "@/lib/scrapbook";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Digital Scrapbook",
-  description:
-    "Curated photo spreads with captions and notes, separate from the memory gallery grid.",
-};
+export const metadata = pageMetadata(
+  "Digital Scrapbook",
+  "Curated photo spreads with captions and notes, separate from the memory gallery grid.",
+);
 
 export default function ScrapbookPage() {
   const memories = getScrapbookMemories();
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12">
+    <main
+      id="site-main"
+      className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12"
+    >
       <div className="relative max-w-2xl">
         <DecorativeDoodle
           variant="flower"

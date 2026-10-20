@@ -15,6 +15,9 @@ export const homeContent = {
     badge: "Officially unofficial headquarters of fun",
     exploreMemoriesLabel: "Explore my memories",
     surpriseLabel: "Surprise me!",
+    /** Family-authored alt for hero.webp — no school, address, or full DOB. */
+    portraitAlt:
+      "Aysha in a scrapbook-style portrait — replace this text in src/data/home.ts when you set the hero photo.",
   },
   intro: {
     heading: "A little person with a LOT of personality",

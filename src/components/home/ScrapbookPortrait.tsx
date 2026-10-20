@@ -1,4 +1,5 @@
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
+import { homeContent } from "@/data/home";
 import { publicFileExists } from "@/lib/public-asset";
 import { cn } from "@/lib/cn";
 import Image from "next/image";
@@ -13,7 +14,7 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
   const hasHero = publicFileExists(HERO_IMAGE_PATH);
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-sm", className)}>
+    <div className={cn("relative mx-auto w-full max-w-sm overflow-x-clip", className)}>
       <div
         aria-hidden
         className="absolute -left-3 top-6 z-20 rotate-[-8deg] rounded-scrapbook-sm bg-butter px-2 py-1 font-display text-xs font-semibold text-plum shadow-[var(--shadow-sticker)]"
@@ -55,7 +56,7 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
           <Image
             unoptimized
             src={HERO_IMAGE_PATH}
-            alt="Aysha smiling in a red top and pink and blue scarf, framed like a scrapbook portrait"
+            alt={homeContent.hero.portraitAlt}
             fill
             priority
             sizes="(max-width: 768px) 85vw, 360px"

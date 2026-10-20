@@ -6,7 +6,7 @@ import { MiniIntroSection } from "@/components/home/MiniIntroSection";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col">
+    <main id="site-main" className="flex flex-1 flex-col">
       <HeroSection />
       <MiniIntroSection />
       <GalleryPreviewSection />

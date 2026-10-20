@@ -1,13 +1,53 @@
 "use client";
 
-import { GiggleChallengeGame } from "@/components/play/GiggleChallengeGame";
-import { PersonalityQuizGame } from "@/components/play/PersonalityQuizGame";
-import { SuperpowerPickerGame } from "@/components/play/SuperpowerPickerGame";
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
+import dynamic from "next/dynamic";
 import { PaperCard } from "@/components/ui/PaperCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Sticker } from "@/components/ui/Sticker";
 import { playPageContent } from "@/data/play-page";
+
+const PersonalityQuizGame = dynamic(
+  () =>
+    import("@/components/play/PersonalityQuizGame").then(
+      (mod) => mod.PersonalityQuizGame,
+    ),
+  {
+    loading: () => (
+      <p className="text-secondary" aria-busy="true">
+        Loading quiz…
+      </p>
+    ),
+  },
+);
+
+const SuperpowerPickerGame = dynamic(
+  () =>
+    import("@/components/play/SuperpowerPickerGame").then(
+      (mod) => mod.SuperpowerPickerGame,
+    ),
+  {
+    loading: () => (
+      <p className="text-secondary" aria-busy="true">
+        Loading superpowers…
+      </p>
+    ),
+  },
+);
+
+const GiggleChallengeGame = dynamic(
+  () =>
+    import("@/components/play/GiggleChallengeGame").then(
+      (mod) => mod.GiggleChallengeGame,
+    ),
+  {
+    loading: () => (
+      <p className="text-secondary" aria-busy="true">
+        Loading giggle challenge…
+      </p>
+    ),
+  },
+);
 
 export function FunZoneExperience() {
   const { page, games } = playPageContent;

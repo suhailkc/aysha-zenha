@@ -39,7 +39,7 @@ The script will:
 - Auto-rotate using EXIF, then strip metadata (EXIF, GPS, IPTC, etc.) in the exported WebP.
 - Resize so the longest edge is at most 1600px (smaller images are not enlarged).
 - Write only to `public/photos/` (originals are never modified).
-- Update `src/data/gallery-manifest.json` with **only successfully converted** files (width, height, public URL).
+- Update `src/data/gallery-manifest.json` with **only successfully converted** files (width, height, public URL). Original filenames are **not** stored in the manifest.
 
 Missing input files are skipped with a warning. Conversion errors are reported; the manifest still lists successes only.
 

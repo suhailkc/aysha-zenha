@@ -1,0 +1,4 @@
+# Discourage crawling of this private family site. This is not access control:
+# anyone with the URL can still view pages and public static files.
+User-agent: *
+Disallow: /

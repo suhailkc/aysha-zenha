@@ -28,6 +28,7 @@ export function SuperpowerPickerGame() {
       <div
         className="fun-zone-result-card fun-zone-result-card--mint"
         role="status"
+        aria-live="polite"
         aria-labelledby={headingId}
       >
         <Sticker accent={selected.accent} tilt="left" className="mb-3">

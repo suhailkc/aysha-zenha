@@ -3,8 +3,8 @@
     "id": "memory-01",
     "alt": "Photo placeholder — add a short, non-identifying description when you add an image",
     "caption": "Replace this caption in src/data/scrapbook.json",
-    "yearOrCategory": "Memory category or year (optional)",
-    "note": "Add a short note here if you like — no dates, places, or names unless the family approved them.",
+    "yearOrCategory": "Everyday moments",
+    "note": "Add a short note here if you like — skip school names, addresses, and full dates unless the family approved them.",
     "accent": "lavender"
   },
   {

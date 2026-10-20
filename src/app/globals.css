@@ -105,6 +105,28 @@ body {
   border-width: 0;
 }
 
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(56, 43, 74, 0.12);
+  background: var(--color-cream);
+  color: var(--color-plum);
+  font-family: var(--font-display), "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--focus-ring);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 /* ── Scrapbook page background ── */
 .scrapbook-bg {
   position: relative;

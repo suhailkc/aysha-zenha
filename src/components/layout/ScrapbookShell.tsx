@@ -38,6 +38,9 @@ export function ScrapbookShell({ children, className }: ScrapbookShellProps) {
         />
       </div>
       <div className="relative z-10 flex min-h-full flex-1 flex-col">
+        <a href="#site-main" className="skip-link">
+          Skip to main content
+        </a>
         <SiteHeader />
         {children}
         <SiteFooter />

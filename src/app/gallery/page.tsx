@@ -3,12 +3,21 @@ import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { galleryPageContent } from "@/data/gallery-page";
 import { getResolvedGalleryPhotos } from "@/lib/gallery";
+import { pageMetadata } from "@/lib/site-metadata";
+
+export const metadata = pageMetadata(
+  "Memory gallery",
+  galleryPageContent.subtitle,
+);
 
 export default function GalleryPage() {
   const photos = getResolvedGalleryPhotos();
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12">
+    <main
+      id="site-main"
+      className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12"
+    >
       <div className="relative">
         <DecorativeDoodle
           variant="flower"

@@ -82,6 +82,7 @@ async function convertOne(inputPath, outputPath) {
     });
   }
 
+  // Re-encode to WebP without copying EXIF/GPS/IPTC (sharp omits metadata unless withMetadata() is used).
   await pipeline
     .webp({ quality: WEBP_QUALITY, effort: 4 })
     .toFile(outputPath);
@@ -170,7 +171,6 @@ async function main() {
         src: `/photos/${outputFile}`,
         width,
         height,
-        sourceInput: inputFile,
       });
       logOk(`${inputFile} → public/photos/${outputFile} (${width}×${height})`);
     } catch (err) {

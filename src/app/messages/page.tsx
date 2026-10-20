@@ -3,19 +3,21 @@ import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { messagesPageContent } from "@/data/messages-page";
 import { getFamilyLoveNotes } from "@/lib/messages";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Family Love Notes",
-  description:
-    "Curated message cards from the family, styled like a handmade scrapbook page.",
-};
+export const metadata = pageMetadata(
+  "Family Love Notes",
+  "Curated message cards from the family, styled like a handmade scrapbook page.",
+);
 
 export default function MessagesPage() {
   const notes = getFamilyLoveNotes();
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12">
+    <main
+      id="site-main"
+      className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12"
+    >
       <div className="relative max-w-2xl">
         <DecorativeDoodle
           variant="heart"
