@@ -19,6 +19,7 @@ export const siteConfig = {
     { href: "/play", label: "Fun Zone" },
     { href: "/countdown", label: "Birthday" },
     { href: "/messages", label: "Love Notes" },
+    { href: "/scrapbook", label: "Scrapbook" },
   ] satisfies NavItem[],
   footerMessage: "Made with extra sprinkles and lots of love.",
   /** Countdown uses month/day only. Source of truth: `@/config/birthday`. */

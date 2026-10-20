@@ -1,24 +1,16 @@
-import { PaperCard } from "@/components/ui/PaperCard";
+import { LoveNoteCard } from "@/components/messages/LoveNoteCard";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { homeContent } from "@/data/home";
-import messages from "@/data/messages.json";
-import type { FamilyMessage } from "@/types/content";
+import { getFamilyLoveNotes } from "@/lib/messages";
+import { loveNoteTiltClass } from "@/lib/love-note-styles";
+import { cn } from "@/lib/cn";
 
-const previewMessages = (messages as FamilyMessage[]).slice(0, 3);
-
-const accentBorder: Record<
-  NonNullable<FamilyMessage["accent"]>,
-  string
-> = {
-  lavender: "border-l-lavender",
-  pink: "border-l-bubblegum",
-  mint: "border-l-mint",
-  butter: "border-l-butter",
-};
+const previewCount = 3;
 
 export function LoveNotesPreviewSection() {
   const { loveNotes } = homeContent;
+  const previewMessages = getFamilyLoveNotes().slice(0, previewCount);
 
   return (
     <section
@@ -36,26 +28,25 @@ export function LoveNotesPreviewSection() {
           {loveNotes.cta}
         </PrimaryButton>
       </div>
-      <ul className="mt-8 grid gap-4 md:grid-cols-3">
-        {previewMessages.map((note) => {
-          const accent = note.accent ?? "lavender";
-          return (
-            <li key={note.id}>
-              <PaperCard
-                padding="sm"
-                className={`h-full border-l-4 ${accentBorder[accent]} bg-white/80`}
-              >
-                <p className="font-display text-sm font-semibold text-plum">
-                  {note.author}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-secondary">
-                  {note.message}
-                </p>
-              </PaperCard>
+      {previewMessages.length === 0 ? (
+        <p className="mt-8 text-center text-secondary">
+          Add notes in src/data/messages.json to preview them here.
+        </p>
+      ) : (
+        <ul className="mt-8 grid list-none gap-4 p-0 md:grid-cols-3">
+          {previewMessages.map((note, index) => (
+            <li
+              key={note.id}
+              className={cn(
+                "motion-safe:transition-transform",
+                loveNoteTiltClass(index),
+              )}
+            >
+              <LoveNoteCard note={note} compact className="h-full bg-white/80" />
             </li>
-          );
-        })}
-      </ul>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }

@@ -3,18 +3,31 @@
     "id": "placeholder-1",
     "author": "Family",
     "message": "Replace this note in src/data/messages.json with your own words for Aysha.",
-    "accent": "lavender"
+    "accent": "lavender",
+    "sticker": "heart",
+    "category": "love"
   },
   {
     "id": "placeholder-2",
     "author": "Someone who loves you",
-    "message": "Add another short message here — keep it sweet, skip private details.",
-    "accent": "mint"
+    "message": "Add another short message here. Keep it sweet and skip private details.",
+    "accent": "mint",
+    "sticker": "star",
+    "category": "encouragement"
   },
   {
     "id": "placeholder-3",
+    "message": "You can leave the sender label off if you prefer a surprise note with no name.",
+    "accent": "butter",
+    "sticker": "sparkle",
+    "category": "cheer"
+  },
+  {
+    "id": "placeholder-4",
     "author": "Your crew",
-    "message": "The message wall is ready whenever you are. Giant hugs included.",
-    "accent": "butter"
+    "message": "Reorder cards by moving objects in the JSON array. Remove an object to delete a note.",
+    "accent": "pink",
+    "sticker": "flower",
+    "category": "birthday"
   }
 ]

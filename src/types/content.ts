@@ -40,11 +40,50 @@ export type GalleryPhoto = {
   height: number;
 };
 
+export type LoveNoteAccent = "lavender" | "pink" | "mint" | "butter";
+
+/** Decorative sticker on a love note card (rendered visually, not read aloud). */
+export type LoveNoteStickerId =
+  | "heart"
+  | "star"
+  | "flower"
+  | "sparkle"
+  | "sun";
+
+export type LoveNoteCategoryId =
+  | "encouragement"
+  | "birthday"
+  | "love"
+  | "cheer"
+  | "gratitude";
+
 export type FamilyMessage = {
   id: string;
-  author: string;
   message: string;
-  accent?: "lavender" | "pink" | "mint" | "butter";
+  /** Optional sender label or family role (e.g. "Grandma", "Your aunties"). */
+  author?: string;
+  accent?: LoveNoteAccent;
+  sticker: LoveNoteStickerId;
+  category?: LoveNoteCategoryId;
+};
+
+export type ScrapbookMemoryEntry = {
+  id: string;
+  /** Basename under `public/images/scrapbook/` (optional until a photo is added). */
+  file?: string;
+  /** Describe the photo for screen readers; required even when `file` is missing. */
+  alt: string;
+  caption: string;
+  /** Optional broad year or memory grouping, family-approved only. */
+  yearOrCategory?: string;
+  note?: string;
+  /** Paper tint for the spread card. */
+  accent?: LoveNoteAccent;
+};
+
+/** Scrapbook memory with resolved image path when the file exists locally. */
+export type ScrapbookMemory = ScrapbookMemoryEntry & {
+  src?: string;
 };
 
 export type QuizOption = {

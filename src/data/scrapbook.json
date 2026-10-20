@@ -1,0 +1,19 @@
+[
+  {
+    "id": "memory-01",
+    "alt": "Photo placeholder — add a short, non-identifying description when you add an image",
+    "caption": "Replace this caption in src/data/scrapbook.json",
+    "yearOrCategory": "Memory category or year (optional)",
+    "note": "Add a short note here if you like — no dates, places, or names unless the family approved them.",
+    "accent": "lavender"
+  },
+  {
+    "id": "memory-02",
+    "file": "memory-02.webp",
+    "alt": "Photo placeholder — describe the moment without private identifying details",
+    "caption": "Another memory caption goes here",
+    "yearOrCategory": "Celebrations",
+    "note": "When you add memory-02.webp under public/images/scrapbook/, this frame will show your photo.",
+    "accent": "mint"
+  }
+]

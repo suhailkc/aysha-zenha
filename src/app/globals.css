@@ -599,3 +599,95 @@ body {
     animation: none;
   }
 }
+
+/* ── Love notes & digital scrapbook ── */
+.scrapbook-tape {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 3.5rem;
+  height: 1.15rem;
+  border-radius: 2px;
+  opacity: 0.88;
+  box-shadow: 0 1px 2px rgba(56, 43, 74, 0.12);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35),
+    transparent 55%
+  );
+}
+
+.scrapbook-tape--butter {
+  background-color: rgba(255, 230, 154, 0.82);
+}
+
+.scrapbook-tape--mint {
+  background-color: rgba(184, 235, 210, 0.82);
+}
+
+.scrapbook-tape--lavender {
+  background-color: rgba(205, 184, 255, 0.78);
+}
+
+.love-note-card__tape-left {
+  top: -0.45rem;
+  left: 1.25rem;
+  transform: rotate(-4deg);
+}
+
+.love-note-card__tape-right {
+  top: -0.35rem;
+  right: 1rem;
+  transform: rotate(5deg);
+}
+
+.love-note-card__heart {
+  position: absolute;
+  pointer-events: none;
+  font-size: 0.65rem;
+  color: rgba(255, 182, 213, 0.55);
+}
+
+.love-note-card__heart--1 {
+  bottom: 0.65rem;
+  left: 0.75rem;
+  transform: rotate(-12deg);
+}
+
+.love-note-card__heart--2 {
+  top: 2.5rem;
+  right: 0.5rem;
+  transform: rotate(8deg);
+}
+
+.love-notes-wall {
+  align-items: stretch;
+}
+
+.scrapbook-spread__tape-top {
+  top: 0.65rem;
+  left: 50%;
+  width: 4.5rem;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.scrapbook-spread__tape-bottom {
+  bottom: 0.75rem;
+  right: 1.5rem;
+  transform: rotate(3deg);
+}
+
+.scrapbook-spread-list .scrapbook-spread:nth-child(odd) {
+  transform: rotate(-0.35deg);
+}
+
+.scrapbook-spread-list .scrapbook-spread:nth-child(even) {
+  transform: rotate(0.4deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrapbook-spread-list .scrapbook-spread:nth-child(odd),
+  .scrapbook-spread-list .scrapbook-spread:nth-child(even) {
+    transform: none;
+  }
+}
