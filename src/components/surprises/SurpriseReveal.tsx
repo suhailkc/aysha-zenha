@@ -115,7 +115,7 @@ export function SurpriseReveal(props: SurpriseRevealProps) {
       >
         {props.badge ? (
           <div className="flex flex-wrap items-center gap-2">
-            <Sticker accent={props.badgeAccent ?? "butter"} tilt="right">
+            <Sticker accent={props.badgeAccent ?? "orange"} tilt="right">
               {props.badge}
             </Sticker>
           </div>

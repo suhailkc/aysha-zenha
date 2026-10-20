@@ -18,6 +18,7 @@ const filterOptions: FilterId[] = [
   "celebrations",
   "adventures",
   "goofy-moments",
+  "karate",
 ];
 
 type MemoryGalleryProps = {
@@ -70,7 +71,9 @@ export function MemoryGallery({ photos }: MemoryGalleryProps) {
                   className={cn(
                     "min-h-11 rounded-scrapbook-pill border px-4 py-2 font-display text-sm font-semibold transition-colors",
                     isActive
-                      ? "border-plum/20 bg-lavender text-plum shadow-[var(--shadow-paper)]"
+                      ? option === "karate"
+                        ? "border-deep-orange/25 bg-karate-orange/35 text-plum shadow-[var(--shadow-paper)]"
+                        : "border-plum/20 bg-lavender text-plum shadow-[var(--shadow-paper)]"
                       : "border-plum/15 bg-white/70 text-plum/85 hover:bg-lavender/40",
                   )}
                 >

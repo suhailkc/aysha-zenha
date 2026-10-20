@@ -4,7 +4,8 @@ export type GalleryTagId =
   | "everyday"
   | "celebrations"
   | "adventures"
-  | "goofy-moments";
+  | "goofy-moments"
+  | "karate";
 
 export type GalleryPhotoEntry = {
   id: string;

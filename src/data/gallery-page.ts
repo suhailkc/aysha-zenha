@@ -18,4 +18,5 @@ export const galleryTagLabels = {
   celebrations: "Celebrations",
   adventures: "Adventures",
   "goofy-moments": "Goofy Moments",
+  karate: "Karate moments",
 } as const;

@@ -8,6 +8,8 @@
   --color-butter: #ffe69a;
   --color-cream: #fff9f0;
   --color-plum: #382b4a;
+  --color-karate-orange: #f28c28;
+  --color-deep-orange: #c96319;
   --color-text-secondary: #6d6280;
 
   --background: var(--color-cream);
@@ -40,6 +42,8 @@
   --color-butter: var(--color-butter);
   --color-cream: var(--color-cream);
   --color-plum: var(--color-plum);
+  --color-karate-orange: var(--color-karate-orange);
+  --color-deep-orange: var(--color-deep-orange);
   --color-text-secondary: var(--color-text-secondary);
 
   --font-sans: var(--font-nunito), "Nunito", ui-rounded, system-ui, sans-serif;
@@ -469,5 +473,171 @@ body {
   top: 2.5rem;
   right: 0.5rem;
   transform: rotate(8deg);
+}
+
+/* ── Karate scrapbook animations ── */
+@keyframes belt-sway {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes achievement-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float-doodle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes sparkle-particle {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--sparkle-angle)) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--sparkle-angle)) translateY(-2.75rem) scale(0.35);
+  }
+}
+
+@keyframes section-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.orange-belt-sway {
+  transform-origin: 50% 20%;
+  transition: transform 0.35s ease;
+}
+
+.group:hover .orange-belt-sway,
+.group:focus-within .orange-belt-sway {
+  animation: belt-sway 1.2s ease-in-out;
+}
+
+.achievement-pop {
+  animation: achievement-pop 0.55s ease-out both;
+}
+
+.anim-float {
+  animation: float-doodle 5.5s ease-in-out infinite;
+}
+
+.anim-float-delayed {
+  animation: float-doodle 6.25s ease-in-out 0.8s infinite;
+}
+
+.section-reveal {
+  animation: section-reveal-in 0.45s ease-out both;
+}
+
+.sparkle-burst__particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin: -0.275rem;
+  border-radius: 1px;
+  background: var(--color-karate-orange);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+  animation: sparkle-particle 0.65s ease-out forwards;
+  animation-delay: calc(var(--sparkle-i) * 0.02s);
+  transform: rotate(var(--sparkle-angle));
+}
+
+.sparkle-burst__particle:nth-child(even) {
+  background: var(--color-lavender);
+}
+
+.photo-card-interactive {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.photo-card-interactive:hover,
+.photo-card-interactive:focus-visible {
+  transform: translateY(-3px) rotate(0deg) !important;
+}
+
+.photo-card-interactive:focus-visible .gallery-photo-frame {
+  box-shadow: var(--shadow-paper-lifted), var(--focus-ring);
+}
+
+.gallery-photo-frame--karate {
+  border-color: rgba(242, 140, 40, 0.35);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 230, 154, 0.25)
+  );
+}
+
+.gallery-photo-frame--karate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px rgba(242, 140, 40, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orange-belt-sway,
+  .group:hover .orange-belt-sway,
+  .group:focus-within .orange-belt-sway {
+    animation: none;
+  }
+
+  .anim-float,
+  .anim-float-delayed {
+    animation: none;
+  }
+
+  .achievement-pop,
+  .section-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .photo-card-interactive:hover,
+  .photo-card-interactive:focus-visible {
+    transform: none !important;
+  }
+
+  .sparkle-burst__particle {
+    animation: none;
+    opacity: 0;
+  }
 }
 

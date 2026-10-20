@@ -47,7 +47,8 @@ export function isGalleryTagId(value: string): value is GalleryTagId {
     value === "everyday" ||
     value === "celebrations" ||
     value === "adventures" ||
-    value === "goofy-moments"
+    value === "goofy-moments" ||
+    value === "karate"
   );
 }
 

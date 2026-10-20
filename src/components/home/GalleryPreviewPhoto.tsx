@@ -1,3 +1,4 @@
+import { KaratePhotoSticker } from "@/components/karate/KaratePhotoSticker";
 import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
 import { galleryPageContent } from "@/data/gallery-page";
 import { cn } from "@/lib/cn";
@@ -24,12 +25,17 @@ export function GalleryPreviewPhoto({
   return (
     <figure
       className={cn(
-        "group relative flex flex-col gap-2",
+        "photo-card-interactive group relative flex flex-col gap-2",
         rotationClass,
         className,
       )}
     >
-      <div className="photo-frame-scrapbook relative w-full overflow-hidden bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35">
+      <div
+        className={cn(
+          "photo-frame-scrapbook gallery-photo-frame relative w-full overflow-hidden bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35",
+          photo.tags.includes("karate") && "gallery-photo-frame--karate",
+        )}
+      >
         <PhotoWithFallback
           unoptimized
           src={photo.src}
@@ -39,8 +45,9 @@ export function GalleryPreviewPhoto({
           loading="lazy"
           sizes="(max-width: 640px) 45vw, 180px"
           fallbackLabel={galleryPageContent.photoLoadError}
-          className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+          className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.015]"
         />
+        {photo.tags.includes("karate") ? <KaratePhotoSticker /> : null}
       </div>
       {photo.caption ? (
         <figcaption className="font-display text-xs font-semibold text-plum/75">

@@ -45,16 +45,22 @@ export const homeContent = {
       },
     ] satisfies IntroLabel[],
   },
-  /** Karate Corner on homepage — verified belt fact only; UI ships in a later phase. */
+  /** Karate Corner on homepage — verified belt fact only. */
   karateCorner: {
-    heading: "Karate Corner",
+    heading: "Welcome to the Dojo of Dreams!",
+    supporting: "Focus, courage, practice and a little bit of sparkle.",
     badgeTitle: "Orange Belt Champion",
     tagline: "Little warrior. Big determination.",
+    cardBlurb:
+      "Aysha loves karate. Her latest belt is Orange Belt, celebrated here with stickers, not scoreboards.",
     values: ["Focus", "Discipline", "Courage"] as const,
-    photoAlt:
-      "Aysha in karate gear — replace with family-approved alt when a public karate photo is added.",
-    ctaLabel: "See my Karate Journey",
-    ctaHref: "/karate",
+    ctaLabel: "Explore my memories",
+    ctaHref: "/gallery",
+  },
+  heroKarate: {
+    editionSticker: "The Little Warrior Edition",
+    championLabel: "Orange Belt Champion",
+    dojoLinkLabel: "Visit the Dojo of Dreams",
   },
   galleryPreview: {
     heading: "Little moments, BIG memories",

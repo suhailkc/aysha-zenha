@@ -1,5 +1,6 @@
 "use client";
 
+import { KaratePhotoSticker } from "@/components/karate/KaratePhotoSticker";
 import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
 import { galleryPageContent } from "@/data/gallery-page";
 import { cn } from "@/lib/cn";
@@ -166,12 +167,14 @@ export function GalleryMasonryCard({
         type="button"
         onClick={() => onOpen(index)}
         aria-label={`Open photo: ${photo.alt}`}
-        className={cn(
-          "group w-full text-left transition-transform duration-200 hover:-translate-y-0.5",
-          rotation,
-        )}
+        className={cn("photo-card-interactive group w-full text-left", rotation)}
       >
-        <div className="photo-frame-scrapbook overflow-hidden bg-white/60 p-1.5 shadow-[var(--shadow-paper-lifted)]">
+        <div
+          className={cn(
+            "photo-frame-scrapbook gallery-photo-frame relative overflow-hidden bg-white/60 p-1.5 shadow-[var(--shadow-paper-lifted)]",
+            photo.tags.includes("karate") && "gallery-photo-frame--karate",
+          )}
+        >
           <div className="overflow-hidden rounded-[inherit]">
             <PhotoWithFallback
               unoptimized
@@ -181,10 +184,11 @@ export function GalleryMasonryCard({
               height={photo.height}
               loading="lazy"
               fallbackLabel={galleryPageContent.photoLoadError}
-              className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+              className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.015]"
               sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 280px"
             />
           </div>
+          {photo.tags.includes("karate") ? <KaratePhotoSticker /> : null}
         </div>
         {photo.caption ? (
           <p className="mt-2 px-1 font-display text-sm font-semibold text-plum/85">

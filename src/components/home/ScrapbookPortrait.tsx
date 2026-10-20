@@ -1,3 +1,4 @@
+import { OrangeBeltIllustration } from "@/components/karate/OrangeBeltIllustration";
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
 import { galleryPageContent } from "@/data/gallery-page";
@@ -25,7 +26,7 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
       <DecorativeDoodle
         variant="star"
         size={26}
-        className="absolute -right-2 top-2 z-20 text-lavender"
+        className="anim-float absolute -right-2 top-2 z-20 text-lavender"
       />
       <DecorativeDoodle
         variant="flower"
@@ -51,6 +52,19 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
         aria-hidden
         className="absolute inset-0 -z-10 -rotate-2 rounded-scrapbook-2xl bg-mint/30"
       />
+
+      <div
+        aria-hidden
+        className="group absolute -bottom-1 -right-2 z-30 rotate-6 rounded-scrapbook-sm bg-white/90 px-2 py-1.5 shadow-[var(--shadow-sticker)]"
+      >
+        <OrangeBeltIllustration className="w-[4.5rem] sm:w-[5rem]" />
+      </div>
+      <div
+        aria-hidden
+        className="absolute left-2 top-[38%] z-20 rotate-[-12deg] rounded-scrapbook-pill border border-deep-orange/20 bg-karate-orange/85 px-2 py-0.5 font-display text-[0.65rem] font-bold uppercase tracking-wide text-plum shadow-[var(--shadow-sticker)]"
+      >
+        Karate
+      </div>
 
       <div className="photo-frame-layered relative aspect-[4/5] w-full">
         {hasHero ? (

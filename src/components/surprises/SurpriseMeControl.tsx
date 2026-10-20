@@ -1,5 +1,6 @@
 "use client";
 
+import { SparkleBurst } from "@/components/surprises/SparkleBurst";
 import { SurpriseButton } from "@/components/surprises/SurpriseButton";
 import { SurpriseReveal } from "@/components/surprises/SurpriseReveal";
 import {
@@ -21,9 +22,11 @@ export function SurpriseMeControl({
   const copy = surprisesContent.sections.surpriseMe;
   const triggerRef = useRef<HTMLButtonElement>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [sparkleKey, setSparkleKey] = useState(0);
   const lastIndexRef = useRef<number | null>(null);
 
   const openSurprise = useCallback(() => {
+    setSparkleKey((k) => k + 1);
     const { item, index } = pickRandomItem(
       surpriseMeMessages,
       lastIndexRef.current,
@@ -39,6 +42,9 @@ export function SurpriseMeControl({
 
   return (
     <>
+      {sparkleKey > 0 ? (
+        <SparkleBurst key={sparkleKey} active />
+      ) : null}
       <SurpriseButton
         ref={triggerRef}
         className={className}

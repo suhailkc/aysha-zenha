@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
 
-export type StickerAccent = "lavender" | "bubblegum" | "mint" | "butter";
+export type StickerAccent = "lavender" | "bubblegum" | "mint" | "butter" | "orange";
 
 type StickerProps = {
   children: ReactNode;
@@ -15,6 +15,7 @@ const accentStyles: Record<StickerAccent, string> = {
   bubblegum: "bg-bubblegum text-plum",
   mint: "bg-mint text-plum",
   butter: "bg-butter text-plum",
+  orange: "bg-karate-orange/90 text-plum border-deep-orange/25",
 };
 
 const tiltStyles = {
