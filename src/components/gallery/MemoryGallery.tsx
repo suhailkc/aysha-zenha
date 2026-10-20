@@ -82,13 +82,7 @@ export function MemoryGallery({ photos }: MemoryGalleryProps) {
         </div>
 
         {filteredPhotos.length === 0 ? (
-          <PaperCardMuted>
-            No photos in this category yet. Try &ldquo;All&rdquo; or add tags in{" "}
-            <code className="rounded bg-white/80 px-1 py-0.5 text-xs">
-              src/data/gallery-entries.json
-            </code>
-            .
-          </PaperCardMuted>
+          <PaperCardMuted>{galleryPageContent.filterEmptyMessage}</PaperCardMuted>
         ) : (
           <div className="gallery-masonry">
             {filteredPhotos.map((photo, index) => (

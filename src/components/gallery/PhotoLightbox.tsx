@@ -1,9 +1,10 @@
 "use client";
 
+import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
+import { galleryPageContent } from "@/data/gallery-page";
 import { cn } from "@/lib/cn";
 import { useModalLayer } from "@/lib/modal-layer";
 import type { GalleryPhoto } from "@/types/content";
-import Image from "next/image";
 import { useCallback, useEffect, useId, useRef } from "react";
 
 type PhotoLightboxProps = {
@@ -93,12 +94,13 @@ export function PhotoLightbox({
 
         <figure className="paper-card relative overflow-hidden rounded-scrapbook-xl p-3 sm:p-4">
           <div className="relative mx-auto max-h-[min(72vh,720px)] w-full overflow-hidden rounded-scrapbook-lg bg-cream/80">
-            <Image
+            <PhotoWithFallback
               unoptimized
               src={photo.src}
               alt={photo.alt}
               width={photo.width}
               height={photo.height}
+              fallbackLabel={galleryPageContent.photoLoadError}
               className="mx-auto h-auto max-h-[min(72vh,720px)] w-auto max-w-full object-contain"
               sizes="(max-width: 768px) 92vw, 720px"
             />
@@ -171,13 +173,14 @@ export function GalleryMasonryCard({
       >
         <div className="photo-frame-scrapbook overflow-hidden bg-white/60 p-1.5 shadow-[var(--shadow-paper-lifted)]">
           <div className="overflow-hidden rounded-[inherit]">
-            <Image
+            <PhotoWithFallback
               unoptimized
               src={photo.src}
               alt={photo.alt}
               width={photo.width}
               height={photo.height}
               loading="lazy"
+              fallbackLabel={galleryPageContent.photoLoadError}
               className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
               sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 280px"
             />

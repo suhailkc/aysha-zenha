@@ -1,6 +1,7 @@
+import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
+import { galleryPageContent } from "@/data/gallery-page";
 import { cn } from "@/lib/cn";
 import type { GalleryPhoto } from "@/types/content";
-import Image from "next/image";
 
 type GalleryPreviewPhotoProps = {
   photo: GalleryPhoto;
@@ -29,7 +30,7 @@ export function GalleryPreviewPhoto({
       )}
     >
       <div className="photo-frame-scrapbook relative w-full overflow-hidden bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35">
-        <Image
+        <PhotoWithFallback
           unoptimized
           src={photo.src}
           alt={photo.alt}
@@ -37,6 +38,7 @@ export function GalleryPreviewPhoto({
           height={photo.height}
           loading="lazy"
           sizes="(max-width: 640px) 45vw, 180px"
+          fallbackLabel={galleryPageContent.photoLoadError}
           className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
         />
       </div>

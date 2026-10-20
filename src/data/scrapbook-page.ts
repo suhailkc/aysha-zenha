@@ -10,4 +10,5 @@ export const scrapbookPageContent = {
     "Photos live in public/images/scrapbook/. Register each memory in src/data/scrapbook.json (see docs/content-editing.md).",
   photoPendingLabel: "Photo coming soon",
   photoPendingHint: "Add the image file named in scrapbook.json, then rebuild or refresh.",
+  photoLoadError: "This photo could not be loaded.",
 } as const;

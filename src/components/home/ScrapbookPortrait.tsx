@@ -1,8 +1,9 @@
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
+import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
+import { galleryPageContent } from "@/data/gallery-page";
 import { homeContent } from "@/data/home";
 import { publicFileExists } from "@/lib/public-asset";
 import { cn } from "@/lib/cn";
-import Image from "next/image";
 
 const HERO_IMAGE_PATH = "/photos/hero.webp";
 
@@ -53,13 +54,14 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
 
       <div className="photo-frame-layered relative aspect-[4/5] w-full">
         {hasHero ? (
-          <Image
+          <PhotoWithFallback
             unoptimized
             src={HERO_IMAGE_PATH}
             alt={homeContent.hero.portraitAlt}
             fill
             priority
             sizes="(max-width: 768px) 85vw, 360px"
+            fallbackLabel={galleryPageContent.photoLoadError}
             className="object-cover"
           />
         ) : (

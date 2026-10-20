@@ -1,7 +1,7 @@
+import { PhotoWithFallback } from "@/components/ui/PhotoWithFallback";
 import { scrapbookPageContent } from "@/data/scrapbook-page";
 import { cn } from "@/lib/cn";
 import type { ScrapbookMemory } from "@/types/content";
-import Image from "next/image";
 
 type ScrapbookPhotoFrameProps = {
   memory: ScrapbookMemory;
@@ -24,11 +24,12 @@ export function ScrapbookPhotoFrame({
       )}
     >
       {memory.src ? (
-        <Image
+        <PhotoWithFallback
           src={memory.src}
           alt={memory.alt}
           fill
           sizes="(max-width: 768px) 100vw, 45vw"
+          fallbackLabel={scrapbookPageContent.photoLoadError}
           className="object-cover"
           priority={priority}
         />

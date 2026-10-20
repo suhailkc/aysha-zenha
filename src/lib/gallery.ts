@@ -1,5 +1,6 @@
 import galleryEntries from "@/data/gallery-entries.json";
 import galleryManifest from "@/data/gallery-manifest.json";
+import { publicFileExists } from "@/lib/public-asset";
 import type {
   GalleryManifest,
   GalleryPhoto,
@@ -21,6 +22,9 @@ export function getResolvedGalleryPhotos(): GalleryPhoto[] {
   for (const entry of entries) {
     const fileMeta = manifestByOutput.get(entry.file);
     if (!fileMeta) {
+      continue;
+    }
+    if (!publicFileExists(fileMeta.src)) {
       continue;
     }
 
