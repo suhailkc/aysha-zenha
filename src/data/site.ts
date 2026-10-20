@@ -1,5 +1,7 @@
 /** Site-wide copy and config. Replace placeholders with family-authored text only. */
 
+import { ayshaBirthday } from "@/config/birthday";
+
 export type NavItem = {
   href: string;
   label: string;
@@ -19,10 +21,7 @@ export const siteConfig = {
     { href: "/messages", label: "Love Notes" },
   ] satisfies NavItem[],
   footerMessage: "Made with extra sprinkles and lots of love.",
-  /**
-   * Countdown uses month/day only (1–12 / 1–31). Do not expose full date of birth in the UI.
-   * Set when the family confirms values for countdown and birthday mode.
-   */
-  birthdayMonth: null as number | null,
-  birthdayDay: null as number | null,
+  /** Countdown uses month/day only. Source of truth: `@/config/birthday`. */
+  birthdayMonth: ayshaBirthday.month,
+  birthdayDay: ayshaBirthday.day,
 } as const;
