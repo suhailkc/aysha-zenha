@@ -388,33 +388,6 @@ body {
   box-shadow: var(--shadow-paper);
 }
 
-/* ── Interactive surprises ── */
-.surprise-reveal-dialog {
-  animation: surprise-pop-in 0.28s ease-out;
-}
-
-.surprise-reveal-inline {
-  animation: surprise-pop-in 0.24s ease-out;
-}
-
-@keyframes surprise-pop-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .surprise-reveal-dialog,
-  .surprise-reveal-inline {
-    animation: none;
-  }
-}
-
 /* ── Love notes (home preview) ── */
 .scrapbook-tape {
   position: absolute;

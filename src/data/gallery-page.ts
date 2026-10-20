@@ -1,7 +1,5 @@
 export const galleryPageContent = {
   title: "Memory Gallery",
-  subtitle:
-    "Little snapshots from Aysha's world, tucked into a scrapbook just for her — including approved karate moments when you tag them. Tap a photo to see it up close.",
   filterLabel: "Browse by mood",
   emptyTitle: "No photos yet",
   emptyBody:

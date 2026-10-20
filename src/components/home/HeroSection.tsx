@@ -1,5 +1,4 @@
 import { ScrapbookPortrait } from "@/components/home/ScrapbookPortrait";
-import { SurprisePop } from "@/components/surprises/SurprisePop";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -44,7 +43,6 @@ export function HeroSection() {
             <SecondaryButton href={heroKarate.dojoLinkHref}>
               {heroKarate.dojoLinkLabel}
             </SecondaryButton>
-            <SurprisePop label={hero.surpriseLabel} />
           </div>
         </div>
         <div className="order-1 lg:order-2">

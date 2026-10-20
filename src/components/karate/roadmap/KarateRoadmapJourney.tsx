@@ -240,9 +240,6 @@ function MilestoneInfographicCard({
         <p className="font-display text-center text-xs font-semibold text-deep-orange/90 sm:text-sm">
           {stage.stageTitle}
         </p>
-        <p className="text-center text-[0.7rem] leading-snug text-secondary sm:text-xs">
-          {stage.motivationalMessage}
-        </p>
       </div>
 
       {isCurrent && stage.celebrationLine ? (

@@ -6,10 +6,7 @@ import { galleryPageContent } from "@/data/gallery-page";
 import { getResolvedGalleryPhotos } from "@/lib/gallery";
 import { pageMetadata } from "@/lib/site-metadata";
 
-export const metadata = pageMetadata(
-  "Memory gallery",
-  galleryPageContent.subtitle,
-);
+export const metadata = pageMetadata("Memory gallery");
 
 export default function GalleryPage() {
   const photos = getResolvedGalleryPhotos();
@@ -34,7 +31,6 @@ export default function GalleryPage() {
         <SectionHeading
           as="h1"
           title={galleryPageContent.title}
-          subtitle={galleryPageContent.subtitle}
           className="relative max-w-2xl"
         />
       </div>

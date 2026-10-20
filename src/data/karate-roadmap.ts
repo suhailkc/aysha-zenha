@@ -61,7 +61,6 @@ export type KarateBeltStage = {
   statusLabel: string;
   /** Storybook chapter title, e.g. "The Brave Beginning" */
   stageTitle: string;
-  motivationalMessage: string;
   illustrationTheme: BeltIllustrationTheme;
   decorativeAccent: KarateRoadmapDecorativeAccent;
   /** Extra copy when the visitor opens this milestone */
@@ -100,7 +99,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "previous-stage",
     statusLabel: "WHERE IT BEGAN",
     stageTitle: "The Brave Beginning",
-    motivationalMessage: "Every great journey starts with one little step.",
     illustrationTheme: "white-start",
     decorativeAccent: "lavender",
     detailNote:
@@ -115,8 +113,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "previous-stage",
     statusLabel: "SUNSHINE STAGE",
     stageTitle: "The Sunshine Stage",
-    motivationalMessage:
-      "Curiosity helps confidence grow. Keep asking, learning and trying!",
     illustrationTheme: "yellow-sunshine",
     decorativeAccent: "butter",
     detailNote:
@@ -131,8 +127,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "current-achievement",
     statusLabel: "ORANGE BELT ACHIEVED!",
     stageTitle: "The Little Warrior's Victory",
-    motivationalMessage:
-      "Look how far you've come! Every practice is another reason to be proud.",
     celebrationLine: "Your hard work deserves a high-five!",
     illustrationTheme: "orange-victory",
     decorativeAccent: "orange",
@@ -148,8 +142,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "future-milestone",
     statusLabel: "FUTURE MILESTONE",
     stageTitle: "Growing Stronger",
-    motivationalMessage:
-      "Keep planting the seeds of focus, patience and practice.",
     illustrationTheme: "green-garden",
     decorativeAccent: "mint",
     detailNote:
@@ -164,8 +156,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "future-milestone",
     statusLabel: "FUTURE MILESTONE",
     stageTitle: "The Sky Is the Limit",
-    motivationalMessage:
-      "Little by little, your skills and confidence can reach new heights.",
     illustrationTheme: "blue-sky",
     decorativeAccent: "lavender",
     detailNote:
@@ -180,8 +170,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "future-milestone",
     statusLabel: "FUTURE MILESTONE",
     stageTitle: "The Persistence Peak",
-    motivationalMessage:
-      "Big dreams grow through patience, effort and trying again.",
     illustrationTheme: "brown-peak",
     decorativeAccent: "plum",
     detailNote:
@@ -196,8 +184,6 @@ export const karateBeltStages: KarateBeltStage[] = [
     status: "long-term-goal",
     statusLabel: "LONG-TERM GOAL",
     stageTitle: "The Big Dream",
-    motivationalMessage:
-      "A Black Belt is not the end of learning. It's another beginning.",
     illustrationTheme: "black-summit",
     decorativeAccent: "plum",
     detailNote:
