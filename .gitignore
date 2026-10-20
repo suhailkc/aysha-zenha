@@ -45,11 +45,6 @@ next-env.d.ts
 !/public/images/gallery/.gitkeep
 !/public/images/gallery/README.md
 
-# Scrapbook photos — same workflow as gallery (local only)
-/public/images/scrapbook/**
-!/public/images/scrapbook/.gitkeep
-!/public/images/scrapbook/README.md
-
 # Original photographs — never commit (see docs/photo-workflow.md)
 /private-photo-input/**/*
 !/private-photo-input/README.md

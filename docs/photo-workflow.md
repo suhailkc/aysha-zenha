@@ -59,6 +59,12 @@ The site shows a gallery row only when **`file` exists in the manifest**. Entrie
 
 To add photo 21+, add a config item, a new entry in `gallery-entries.json`, run `npm run photos:prepare`, and redeploy.
 
+When the gallery supports it, tag approved public karate snapshots (for example a `karate` tag) and keep captions free of dojo names, schedules, and locations.
+
+## Karate Journey photos (separate folder)
+
+Approved karate images for **Karate Corner** and **`/karate`** live under `public/images/karate/` (see `docs/content-editing.md` and `docs/implementation-plan.md`). Optimize and strip EXIF the same way as gallery photos. Crop or blur dojo signage and other identifying details before deploy. Register each file in `src/data/karate-journey.json` when that page is implemented.
+
 ## 5. Deploy
 
 `public/photos/` is gitignored. Before `npm run build` or a Vercel deploy, run `photos:prepare` on a machine that has the originals and config. Treat anything in `public/photos/` as **public** once the site is live.

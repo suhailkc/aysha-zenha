@@ -4,7 +4,7 @@ export type IntroLabel = {
   id: string;
   title: string;
   description: string;
-  accent: "lavender" | "bubblegum" | "mint" | "butter";
+  accent: "lavender" | "bubblegum" | "mint" | "butter" | "orange";
   tilt: "left" | "right" | "none";
 };
 
@@ -45,21 +45,26 @@ export const homeContent = {
       },
     ] satisfies IntroLabel[],
   },
+  /** Karate Corner on homepage — verified belt fact only; UI ships in a later phase. */
+  karateCorner: {
+    heading: "Karate Corner",
+    badgeTitle: "Orange Belt Champion",
+    tagline: "Little warrior. Big determination.",
+    values: ["Focus", "Discipline", "Courage"] as const,
+    photoAlt:
+      "Aysha in karate gear — replace with family-approved alt when a public karate photo is added.",
+    ctaLabel: "See my Karate Journey",
+    ctaHref: "/karate",
+  },
   galleryPreview: {
     heading: "Little moments, BIG memories",
-    subtitle: "Peek at a few favorite frames from the scrapbook wall.",
+    subtitle:
+      "Peek at a few favorite frames from the scrapbook wall — everyday giggles, adventures, and approved karate snapshots when you add them.",
     cta: "Explore all memories",
-  },
-  funZone: {
-    heading: "Warning: extreme silliness ahead",
-    subtitle: "Games, quizzes, and tiny adventures that might cause giggles.",
-    cta: "Enter the Fun Zone",
-    teaser: "Memory match, star hunts, and very important nonsense await.",
   },
   loveNotes: {
     heading: "Tiny notes, giant hugs",
     subtitle: "Love letters from the people who cheer the loudest.",
-    cta: "Read every love note",
   },
 } as const;
 

@@ -1,4 +1,4 @@
-/** Shared content types for static data (gallery, messages, quizzes). */
+/** Shared content types for static data (gallery, love notes). */
 
 export type GalleryTagId =
   | "everyday"
@@ -66,44 +66,3 @@ export type FamilyMessage = {
   sticker: LoveNoteStickerId;
   category?: LoveNoteCategoryId;
 };
-
-export type ScrapbookMemoryEntry = {
-  id: string;
-  /** Basename under `public/images/scrapbook/` (optional until a photo is added). */
-  file?: string;
-  /** Describe the photo for screen readers; required even when `file` is missing. */
-  alt: string;
-  caption: string;
-  /** Optional broad year or memory grouping, family-approved only. */
-  yearOrCategory?: string;
-  note?: string;
-  /** Paper tint for the spread card. */
-  accent?: LoveNoteAccent;
-};
-
-/** Scrapbook memory with resolved image path when the file exists locally. */
-export type ScrapbookMemory = ScrapbookMemoryEntry & {
-  src?: string;
-};
-
-export type QuizOption = {
-  id: string;
-  label: string;
-};
-
-export type QuizQuestion = {
-  id: string;
-  prompt: string;
-  options: QuizOption[];
-  correctOptionId: string;
-  successMessage: string;
-  wrongMessage: string;
-};
-
-export type {
-  DailySprinkleItem,
-  DailySprinkleKind,
-  StickerDiscoveryItem,
-  SurpriseAccent,
-  SurpriseDoodleId,
-} from "@/data/surprises";

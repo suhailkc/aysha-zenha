@@ -8,23 +8,23 @@ This site is a **public** birthday gift for a child. Treat every deploy as world
 - **`public/robots.txt`** discourages crawling. It is **not** access control. Malicious bots and direct links ignore it.
 - An **unguessable URL** is not security. Anyone who receives the link can forward it, screenshot it, or save images.
 
-Anyone with the live URL can open HTML pages and fetch anything under `public/` (including `/photos/*.webp` and scrapbook images once added).
+Anyone with the live URL can open HTML pages and fetch anything under `public/` (including `/photos/*.webp` and karate images once added).
 
 ## Limitations of a public child-focused website
 
 - Deployed photos and captions are **public assets**, even if the site is unlisted.
 - Link previews (messages, social apps) may fetch Open Graph metadata and the illustration at `/og-illustration.svg` (no child photo by design).
 - Fonts are self-hosted via Next.js (`next/font`); there are no analytics or third-party trackers in this repo.
-- Browser games and surprises use **session-only** storage for small UX flags (for example birthday confetti once per tab). Nothing is sent to a server.
+- The hero “Surprise me” control is client-only random copy; nothing is sent to a server.
 
 ## Before you publish — family review
 
 ### Content and privacy
 
-- [ ] Search `src/data/` and JSON copy for **school names**, **home address**, **full date of birth**, **birth year**, **city**, **license plates**, or other identifying details. Remove or rewrite before deploy.
-- [ ] Review every gallery **alt text**, **caption**, scrapbook **note**, and love note **message** in `src/data/`.
+- [ ] Search `src/data/` and JSON copy for **school names**, **home address**, **full date of birth**, **birth year**, **city**, **license plates**, **karate school or dojo names**, **training schedule or location**, or other identifying details. Remove or rewrite before deploy.
+- [ ] Review every gallery **alt text**, **caption**, and love note **message** in `src/data/`.
 - [ ] Confirm hero portrait alt text in `src/data/home.ts` (`hero.portraitAlt`) matches the photo without private details.
-- [ ] Crop or blur identifying background details in source photos (signs, uniforms, house numbers) **before** running `npm run photos:prepare`.
+- [ ] Crop or blur identifying background details in source photos (signs, uniforms, dojo wall text, house numbers) **before** running `npm run photos:prepare` or adding karate images under `public/images/karate/`.
 - [ ] Use generic output names in `prepare.config.json` (for example `photo-01.webp`), not real filenames, in case manifests are shared.
 
 ### Photos and Git
@@ -40,8 +40,7 @@ Anyone with the live URL can open HTML pages and fetch anything under `public/` 
 - [ ] `npm run build` passes on a machine that has prepared photos if you expect the gallery to be full.
 - [ ] Click through every route on a phone-width viewport: no horizontal scroll, tappable nav, readable headings.
 - [ ] Gallery lightbox: open a photo, use **Escape**, **Close**, **Previous** / **Next**, and keyboard focus ring on controls.
-- [ ] Fun Zone: complete each game and confirm result cards appear (screen readers get `role="status"` / live regions where implemented).
-- [ ] Countdown shows **month and day only** in UI (no birth year).
+- [ ] Home: open hero “Surprise me” and confirm the dialog closes with keyboard and screen reader labels.
 
 ### Sharing
 

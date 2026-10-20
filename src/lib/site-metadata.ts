@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const siteDescription =
-  "A personal birthday gift site for Aysha Zenha — gallery, surprises, and little joys.";
+  "A personal birthday gift site for Aysha Zenha — memories, love notes, and little joys.";
 
 function resolveMetadataBase(): URL {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;

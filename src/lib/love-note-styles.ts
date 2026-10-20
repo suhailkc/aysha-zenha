@@ -1,4 +1,12 @@
-import type { LoveNoteAccent } from "@/types/content";
+import type { LoveNoteAccent, LoveNoteCategoryId } from "@/types/content";
+
+export const loveNoteCategoryLabels: Record<LoveNoteCategoryId, string> = {
+  encouragement: "Encouragement",
+  birthday: "Birthday",
+  love: "Love",
+  cheer: "Cheer",
+  gratitude: "Gratitude",
+};
 
 export const loveNoteAccentSurface: Record<LoveNoteAccent, string> = {
   lavender: "bg-lavender/35 border-lavender/50",

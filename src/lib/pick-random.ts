@@ -28,14 +28,3 @@ export function pickRandomItem<T>(
   const index = pickRandomIndex(items.length, avoidIndex);
   return { item: items[index] as T, index };
 }
-
-/** Stable index for “today” in the visitor’s local timezone (client only). */
-export function getLocalDayOfYearIndex(length: number, date = new Date()): number {
-  if (length <= 0) {
-    return 0;
-  }
-  const start = new Date(date.getFullYear(), 0, 0);
-  const diff = date.getTime() - start.getTime();
-  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-  return dayOfYear % length;
-}

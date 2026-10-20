@@ -16,9 +16,13 @@ Personal birthday gift website for **Aysha Zenha**. Not a business site or gener
 
 Build a loving, art-directed, highly personalized experience. Every design and copy choice should feel specific to Aysha, not template-like.
 
+**Verified personal detail (use only in family-authored or approved copy):** Aysha is passionate about karate. Her latest achieved belt is **Orange Belt**. Do not invent dojo names, instructors, competition results, medals, training history, or future belt achievements.
+
 ## Design direction
 
 Scrapbook aesthetic: lavender, bubblegum pink, mint green, butter yellow, warm cream; rounded cards; paper textures; stars; hand-drawn doodles; sticker decorations; lively but readable typography.
+
+Add **orange** as a meaningful accent (for example badges, belt ribbons, Karate Corner highlights) to celebrate her Orange Belt. Orange should complement the pastel palette, not replace it.
 
 Avoid: generic startup dashboards, template hero sections, excessive gradients, childish clutter.
 
@@ -35,19 +39,19 @@ Avoid: generic startup dashboards, template hero sections, excessive gradients, 
 
 ## Planned features (implement incrementally)
 
-1. Distinctive landing page
-2. Gallery (20+ locally stored photos)
-3. Interactive surprise buttons and reveal cards
-4. Birthday countdown and automatic birthday mode
-5. Small browser games and funny quizzes
-6. Curated family message wall and digital scrapbook
+1. Distinctive landing page, including a **Karate Corner** (Orange Belt champion badge, approved photo or placeholder illustration, tagline “Little warrior. Big determination.”, values Focus / Discipline / Courage, link to Karate Journey)
+2. Gallery (20+ locally stored photos), with optional **karate** mood tag for approved public karate snapshots
+3. Hero “Surprise me” dialog (lightweight reveal; no dedicated surprises route)
+4. Home love notes preview from `src/data/messages.json` (no dedicated messages route)
+5. **Karate Journey** scrapbook section: approved karate photos and editable milestone cards (captions, achievement titles, optional dates). Show **Orange Belt** as the verified current achievement only; do not fabricate belt timelines or mark unearned belts as completed
 
 See `docs/implementation-plan.md` for structure and validation steps.
 
 ## Child privacy
 
-- **Never display:** school name, home address, full date of birth, GPS/location, license plates, or other identifying details in UI or metadata.
-- **Never invent:** personal facts, family relationships, memories, or quotes. Use only content supplied by the family in repo data files.
+- **Never display:** school name, home address, full date of birth, GPS/location, license plates, karate **school or dojo name**, training **schedule**, training **location**, or other identifying details in UI or metadata.
+- **Never invent:** personal facts, family relationships, memories, quotes, belt progress beyond family-supplied milestones, or karate competition history. Use only content supplied by the family in repo data files.
+- **Karate photos:** use only images the family approved for public display; crop or blur identifying uniforms, signage, or backgrounds before prepare/deploy.
 - **No collection:** no public forms, submissions, or user data storage.
 - **Public assets:** treat all deployed photos and static files as publicly accessible; an unlisted URL is not security.
 - **Git:** never commit original photographs, `.env` files, or secrets. Follow `public/images/gallery/README.md` for the photo workflow.

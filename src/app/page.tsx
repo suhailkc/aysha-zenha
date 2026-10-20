@@ -1,4 +1,3 @@
-import { FunZonePreviewSection } from "@/components/home/FunZonePreviewSection";
 import { GalleryPreviewSection } from "@/components/home/GalleryPreviewSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { LoveNotesPreviewSection } from "@/components/home/LoveNotesPreviewSection";
@@ -10,7 +9,6 @@ export default function Home() {
       <HeroSection />
       <MiniIntroSection />
       <GalleryPreviewSection />
-      <FunZonePreviewSection />
       <LoveNotesPreviewSection />
     </main>
   );

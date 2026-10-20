@@ -1,7 +1,7 @@
 import { LoveNoteStickerIcon } from "@/components/messages/LoveNoteStickerIcon";
 import { TapeDecoration } from "@/components/messages/TapeDecoration";
 import { Sticker } from "@/components/ui/Sticker";
-import { loveNoteCategoryLabels } from "@/data/messages-page";
+import { loveNoteCategoryLabels } from "@/lib/love-note-styles";
 import {
   loveNoteAccentOrDefault,
   loveNoteAccentSurface,
