@@ -55,7 +55,7 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
           <Image
             unoptimized
             src={HERO_IMAGE_PATH}
-            alt="Aysha smiling in a cozy outfit, framed like a scrapbook portrait"
+            alt="Aysha smiling in a red top and pink and blue scarf, framed like a scrapbook portrait"
             fill
             priority
             sizes="(max-width: 768px) 85vw, 360px"

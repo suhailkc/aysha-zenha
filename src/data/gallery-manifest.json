@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-20T09:34:20.785Z",
+  "generatedAt": "2026-10-20T09:38:24.958Z",
   "files": [
     {
       "output": "hero.webp",
       "src": "/photos/hero.webp",
-      "width": 768,
-      "height": 1024,
+      "width": 750,
+      "height": 1000,
       "sourceInput": "hero.jpg"
     },
     {
