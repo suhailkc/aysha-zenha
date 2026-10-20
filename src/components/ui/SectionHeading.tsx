@@ -7,6 +7,8 @@ type SectionHeadingProps = {
   as?: "h1" | "h2" | "h3";
   align?: "left" | "center";
   className?: string;
+  /** Applied to the heading element for `aria-labelledby` on sections. */
+  headingId?: string;
 };
 
 export function SectionHeading({
@@ -15,6 +17,7 @@ export function SectionHeading({
   as: Tag = "h2",
   align = "left",
   className,
+  headingId,
 }: SectionHeadingProps) {
   return (
     <header
@@ -25,9 +28,11 @@ export function SectionHeading({
       )}
     >
       <Tag
+        id={headingId}
         className={cn(
           "font-display font-semibold tracking-tight text-plum",
-          Tag === "h1" && "text-4xl leading-tight sm:text-5xl md:text-6xl",
+          Tag === "h1" &&
+            "text-4xl leading-tight text-balance sm:text-5xl md:text-6xl",
           Tag === "h2" && "text-3xl leading-snug sm:text-4xl",
           Tag === "h3" && "text-2xl leading-snug sm:text-3xl",
         )}

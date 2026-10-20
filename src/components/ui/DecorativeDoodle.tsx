@@ -1,7 +1,13 @@
 import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
 
-export type DoodleVariant = "star" | "flower" | "sparkle" | "heart";
+export type DoodleVariant =
+  | "star"
+  | "flower"
+  | "sparkle"
+  | "heart"
+  | "planet"
+  | "smiley";
 
 type DecorativeDoodleProps = {
   variant: DoodleVariant;
@@ -30,6 +36,37 @@ const paths: Record<DoodleVariant, ReactNode> = {
       />
       <circle cx="19" cy="17" r="1.5" fill="currentColor" />
       <circle cx="4" cy="14" r="1" fill="currentColor" />
+    </>
+  ),
+  planet: (
+    <>
+      <circle cx="12" cy="13" r="7" fill="currentColor" opacity="0.9" />
+      <ellipse
+        cx="12"
+        cy="13"
+        rx="10"
+        ry="3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        opacity="0.75"
+        transform="rotate(-18 12 13)"
+      />
+      <circle cx="9" cy="10" r="1.2" fill="var(--color-cream)" opacity="0.85" />
+    </>
+  ),
+  smiley: (
+    <>
+      <circle cx="12" cy="12" r="9" fill="currentColor" />
+      <circle cx="9" cy="10" r="1.2" fill="var(--color-plum)" />
+      <circle cx="15" cy="10" r="1.2" fill="var(--color-plum)" />
+      <path
+        d="M8.5 14.5c1.2 1.8 2.8 2.7 3.5 2.7s2.3-.9 3.5-2.7"
+        fill="none"
+        stroke="var(--color-plum)"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
     </>
   ),
   flower: (

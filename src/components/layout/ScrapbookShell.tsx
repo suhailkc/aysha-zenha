@@ -1,3 +1,5 @@
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
@@ -36,7 +38,9 @@ export function ScrapbookShell({ children, className }: ScrapbookShellProps) {
         />
       </div>
       <div className="relative z-10 flex min-h-full flex-1 flex-col">
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </div>
     </div>
   );

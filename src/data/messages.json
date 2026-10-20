@@ -1,0 +1,20 @@
+[
+  {
+    "id": "placeholder-1",
+    "author": "Family",
+    "message": "Replace this note in src/data/messages.json with your own words for Aysha.",
+    "accent": "lavender"
+  },
+  {
+    "id": "placeholder-2",
+    "author": "Someone who loves you",
+    "message": "Add another short message here — keep it sweet, skip private details.",
+    "accent": "mint"
+  },
+  {
+    "id": "placeholder-3",
+    "author": "Your crew",
+    "message": "The message wall is ready whenever you are. Giant hugs included.",
+    "accent": "butter"
+  }
+]
