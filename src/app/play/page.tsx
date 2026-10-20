@@ -1,13 +1,16 @@
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FunZoneExperience } from "@/components/play/FunZoneExperience";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Fun Zone",
+  description:
+    "Playful quizzes, silly superpowers, and quick giggle challenges in Aysha's Little Universe.",
+};
 
 export default function PlayPage() {
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-12 sm:px-6">
-      <SectionHeading
-        as="h1"
-        title="Fun Zone"
-        subtitle="Games and quizzes will land here soon. The homepage teaser is ready when you are."
-      />
+    <main className="flex flex-1 flex-col">
+      <FunZoneExperience />
     </main>
   );
 }

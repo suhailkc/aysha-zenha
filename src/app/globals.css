@@ -247,6 +247,19 @@ body {
   box-shadow: var(--shadow-paper);
 }
 
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-paper);
+}
+
+.btn-primary:disabled:hover {
+  background: var(--color-bubblegum);
+  transform: none;
+  box-shadow: var(--shadow-paper);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn-primary:hover,
   .btn-primary:active {
@@ -470,4 +483,119 @@ body {
 
 .confetti-canvas {
   pointer-events: none;
+}
+
+/* ── Fun Zone games ── */
+.fun-zone-game-card {
+  border-radius: var(--radius-2xl);
+}
+
+.fun-zone-game-card--quiz {
+  background: linear-gradient(
+    165deg,
+    rgba(205, 184, 255, 0.22),
+    rgba(255, 255, 255, 0.78) 45%
+  );
+}
+
+.fun-zone-game-card--power {
+  background: linear-gradient(
+    165deg,
+    rgba(184, 235, 210, 0.28),
+    rgba(255, 255, 255, 0.78) 48%
+  );
+}
+
+.fun-zone-game-card--giggle {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 230, 154, 0.35),
+    rgba(255, 255, 255, 0.78) 50%
+  );
+}
+
+.fun-zone-choice {
+  display: flex;
+  min-height: var(--space-touch-min);
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid rgba(56, 43, 74, 0.12);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--color-plum);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+  box-shadow: var(--shadow-paper);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.fun-zone-choice--compact {
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.fun-zone-choice:hover {
+  border-color: rgba(56, 43, 74, 0.22);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-paper-lifted);
+}
+
+.fun-zone-choice:active {
+  transform: scale(0.99);
+}
+
+.fun-zone-choice--selected {
+  border-color: rgba(56, 43, 74, 0.28);
+  background: rgba(205, 184, 255, 0.35);
+  box-shadow:
+    var(--shadow-paper-lifted),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.fun-zone-choice:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fun-zone-choice:active {
+    transform: none;
+  }
+}
+
+.fun-zone-result-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 2px dashed rgba(56, 43, 74, 0.14);
+  animation: surprise-pop-in 0.28s ease-out;
+}
+
+.fun-zone-result-card--lavender {
+  background: rgba(205, 184, 255, 0.2);
+}
+
+.fun-zone-result-card--mint {
+  background: rgba(184, 235, 210, 0.25);
+}
+
+.fun-zone-result-card--butter {
+  background: rgba(255, 230, 154, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fun-zone-result-card {
+    animation: none;
+  }
 }
