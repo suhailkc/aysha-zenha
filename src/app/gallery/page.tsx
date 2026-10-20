@@ -1,13 +1,33 @@
+import { MemoryGallery } from "@/components/gallery/MemoryGallery";
+import { DecorativeDoodle } from "@/components/ui/DecorativeDoodle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { galleryPageContent } from "@/data/gallery-page";
+import { getResolvedGalleryPhotos } from "@/lib/gallery";
 
 export default function GalleryPage() {
+  const photos = getResolvedGalleryPhotos();
+
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-12 sm:px-6">
-      <SectionHeading
-        as="h1"
-        title="Memories"
-        subtitle="The full photo gallery is coming next. For now, enjoy the scrapbook preview on the home page."
-      />
+    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-12">
+      <div className="relative">
+        <DecorativeDoodle
+          variant="flower"
+          size={36}
+          className="absolute -left-1 top-2 hidden text-mint sm:block"
+        />
+        <DecorativeDoodle
+          variant="star"
+          size={28}
+          className="absolute -right-1 top-8 text-lavender"
+        />
+        <SectionHeading
+          as="h1"
+          title={galleryPageContent.title}
+          subtitle={galleryPageContent.subtitle}
+          className="relative max-w-2xl"
+        />
+      </div>
+      <MemoryGallery photos={photos} />
     </main>
   );
 }

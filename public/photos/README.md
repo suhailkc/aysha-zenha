@@ -1,9 +1,10 @@
-# Hero portrait (local only)
+# Prepared photos (local only)
 
-Place the homepage hero image here as **`hero.webp`**.
+WebP files here are produced by **`npm run photos:prepare`** from originals in `private-photo-input/`.
 
-- Resize for web (about 1600px on the long edge is enough).
-- Crop or blur license plates, school signs, and other identifying details before saving.
-- Strip EXIF when possible.
+- **`hero.webp`** — optional homepage portrait
+- **`photo-01.webp`**, **`photo-02.webp`**, … — memory gallery
 
-Image files in this folder are **gitignored**. Keep a copy on the machine that runs `npm run build` before deploying to Vercel.
+Image binaries in this folder are **gitignored**. Run the prepare script on any machine before `npm run build` or deploy.
+
+Captions, tags, and alt text live in `src/data/gallery-entries.json`. See [docs/photo-workflow.md](../../docs/photo-workflow.md).

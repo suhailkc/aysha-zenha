@@ -1,14 +1,16 @@
 import { GalleryPreviewPhoto } from "@/components/home/GalleryPreviewPhoto";
+import { GalleryPreviewPlaceholder } from "@/components/home/GalleryPreviewPlaceholder";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { galleryPhotos } from "@/data/gallery";
 import { homeContent } from "@/data/home";
+import { galleryPreviewCount, getResolvedGalleryPhotos } from "@/lib/gallery";
 
 const rotations = ["left", "right", "none", "right"] as const;
 
 export function GalleryPreviewSection() {
   const { galleryPreview } = homeContent;
-  const preview = galleryPhotos.slice(0, 4);
+  const preview = getResolvedGalleryPhotos().slice(0, galleryPreviewCount);
+  const placeholderCount = Math.max(0, galleryPreviewCount - preview.length);
 
   return (
     <section
@@ -33,6 +35,12 @@ export function GalleryPreviewSection() {
             key={photo.id}
             photo={photo}
             rotation={rotations[index] ?? "none"}
+          />
+        ))}
+        {Array.from({ length: placeholderCount }, (_, i) => (
+          <GalleryPreviewPlaceholder
+            key={`placeholder-${i}`}
+            rotation={rotations[preview.length + i] ?? "none"}
           />
         ))}
       </div>

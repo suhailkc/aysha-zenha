@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "input": "hero.jpg",
+      "output": "hero.webp",
+      "note": "Optional homepage portrait"
+    },
+    { "input": "memory-01.jpg", "output": "photo-01.webp" },
+    { "input": "memory-02.jpg", "output": "photo-02.webp" },
+    { "input": "memory-03.jpg", "output": "photo-03.webp" },
+    { "input": "memory-04.jpg", "output": "photo-04.webp" },
+    { "input": "memory-05.jpg", "output": "photo-05.webp" },
+    { "input": "memory-06.jpg", "output": "photo-06.webp" },
+    { "input": "memory-07.jpg", "output": "photo-07.webp" },
+    { "input": "memory-08.jpg", "output": "photo-08.webp" },
+    { "input": "memory-09.jpg", "output": "photo-09.webp" },
+    { "input": "memory-10.jpg", "output": "photo-10.webp" },
+    { "input": "memory-11.jpg", "output": "photo-11.webp" },
+    { "input": "memory-12.jpg", "output": "photo-12.webp" },
+    { "input": "memory-13.jpg", "output": "photo-13.webp" },
+    { "input": "memory-14.jpg", "output": "photo-14.webp" },
+    { "input": "memory-15.jpg", "output": "photo-15.webp" },
+    { "input": "memory-16.jpg", "output": "photo-16.webp" },
+    { "input": "memory-17.jpg", "output": "photo-17.webp" },
+    { "input": "memory-18.jpg", "output": "photo-18.webp" },
+    { "input": "memory-19.jpg", "output": "photo-19.webp" },
+    { "input": "memory-20.jpg", "output": "photo-20.webp" },
+    { "input": "memory-21.jpg", "output": "photo-21.webp" },
+    { "input": "memory-22.jpg", "output": "photo-22.webp" },
+    { "input": "memory-23.jpg", "output": "photo-23.webp" },
+    { "input": "memory-24.jpg", "output": "photo-24.webp" },
+    { "input": "memory-25.jpg", "output": "photo-25.webp" }
+  ]
+}

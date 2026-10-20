@@ -53,6 +53,7 @@ export function ScrapbookPortrait({ className }: ScrapbookPortraitProps) {
       <div className="photo-frame-layered relative aspect-[4/5] w-full">
         {hasHero ? (
           <Image
+            unoptimized
             src={HERO_IMAGE_PATH}
             alt="Aysha smiling in a cozy outfit, framed like a scrapbook portrait"
             fill
