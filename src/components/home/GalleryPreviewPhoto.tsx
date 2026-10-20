@@ -32,7 +32,7 @@ export function GalleryPreviewPhoto({
     >
       <div
         className={cn(
-          "photo-frame-scrapbook gallery-photo-frame relative w-full overflow-hidden bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35",
+          "photo-frame-scrapbook gallery-photo-frame relative aspect-[3/4] w-full overflow-hidden bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35",
           photo.tags.includes("karate") && "gallery-photo-frame--karate",
         )}
       >
@@ -45,7 +45,7 @@ export function GalleryPreviewPhoto({
           loading="lazy"
           sizes="(max-width: 640px) 45vw, 180px"
           fallbackLabel={galleryPageContent.photoLoadError}
-          className="h-auto w-full object-cover transition-transform duration-200 group-hover:scale-[1.015]"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.015]"
         />
         {photo.tags.includes("karate") ? <KaratePhotoSticker /> : null}
       </div>

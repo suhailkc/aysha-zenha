@@ -23,7 +23,7 @@ export function GalleryPreviewPlaceholder({
     >
       <div
         aria-hidden
-        className="photo-frame-scrapbook flex aspect-square w-full flex-col items-center justify-center gap-2 bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35 p-3 text-center"
+        className="photo-frame-scrapbook flex aspect-[3/4] w-full flex-col items-center justify-center gap-2 bg-linear-to-br from-lavender/35 via-bubblegum/25 to-mint/35 p-3 text-center"
       >
         <DecorativeDoodle variant="star" size={22} className="text-plum/25" />
         <span className="font-display text-xs font-semibold text-plum/50">
