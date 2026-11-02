@@ -31,7 +31,7 @@ Rules:
 From the project root:
 
 ```bash
-npm run photos:prepare
+pnpm photos:prepare
 ```
 
 The script will:
@@ -57,7 +57,7 @@ Edit **`src/data/gallery-entries.json`** (one object per gallery photo):
 
 The site shows a gallery row only when **`file` exists in the manifest**. Entries without a prepared file are ignored, so you never get broken images.
 
-To add photo 21+, add a config item, a new entry in `gallery-entries.json`, run `npm run photos:prepare`, and redeploy.
+To add photo 21+, add a config item, a new entry in `gallery-entries.json`, run `pnpm photos:prepare`, and redeploy.
 
 When the gallery supports it, tag approved public karate snapshots (for example a `karate` tag) and keep captions free of dojo names, schedules, and locations.
 
@@ -67,12 +67,12 @@ Approved karate images for **Karate Corner** and **`/karate`** live under `publi
 
 ## 5. Deploy
 
-`public/photos/` is gitignored. Before `npm run build` or a Vercel deploy, run `photos:prepare` on a machine that has the originals and config. Treat anything in `public/photos/` as **public** once the site is live.
+`public/photos/` is gitignored. Before `pnpm build` or a Vercel deploy, run `photos:prepare` on a machine that has the originals and config. Treat anything in `public/photos/` as **public** once the site is live.
 
 ## Quick checklist
 
 1. Drop files in `private-photo-input/`.
 2. Update `prepare.config.json`.
-3. Run `npm run photos:prepare`.
+3. Run `pnpm photos:prepare`.
 4. Personalize `src/data/gallery-entries.json`.
 5. Build and deploy from a machine that has the prepared WebP files.

@@ -5,16 +5,16 @@ Use this before the first deploy and whenever you add photos, messages, or pages
 ## Run the site locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000). Production-like check:
 
 ```bash
-npm run lint
-npm run build
-npm run start
+pnpm lint
+pnpm build
+pnpm start
 ```
 
 No environment variables are required for core features. Optional: set `NEXT_PUBLIC_SITE_URL` to your production URL so Open Graph links resolve correctly in chat previews.
@@ -26,7 +26,7 @@ No environment variables are required for core features. Optional: set `NEXT_PUB
 3. On the machine that will **build or deploy**, run:
 
    ```bash
-   npm run photos:prepare
+   pnpm photos:prepare
    ```
 
    This writes WebP files to `public/photos/` and updates `src/data/gallery-manifest.json` with sizes and paths.
@@ -54,7 +54,7 @@ Guide: **`docs/content-editing.md`**.
 ## Deploy and update
 
 1. Complete the privacy section below on a family-reviewed copy of the site.
-2. Run `npm run photos:prepare` on the deploy machine if the gallery should include real photos (`public/photos/` is gitignored).
+2. Run `pnpm photos:prepare` on the deploy machine if the gallery should include real photos (`public/photos/` is gitignored).
 3. Push to your Git host and deploy with **Vercel** (Next.js preset, Hobby tier is fine).
 4. Optional: set **`NEXT_PUBLIC_SITE_URL`** in Vercel to your canonical URL.
 5. After deploy, click through every route on phone and desktop widths.
@@ -76,8 +76,8 @@ Treat the live URL as **public**: anyone with the link can read pages and downlo
 
 ## Quick technical smoke test
 
-- [ ] `npm run lint` — zero errors
-- [ ] `npm run build` — succeeds
+- [ ] `pnpm lint` — zero errors
+- [ ] `pnpm build` — succeeds
 - [ ] Nav: Home, Memories (Karate Journey when `/karate` ships)
 - [ ] Home: hero “Surprise me” dialog, love notes preview, Karate Corner badge, values, link to `/karate` (when implemented)
 - [ ] Gallery: filters, lightbox (Close, Previous, Next, Escape); karate-tagged photos if used

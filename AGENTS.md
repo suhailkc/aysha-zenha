@@ -65,7 +65,7 @@ See `docs/implementation-plan.md` for structure and validation steps.
 ## Commands
 
 ```bash
-npm run dev    # development server
-npm run build  # production build
-npm run lint   # ESLint
+pnpm dev    # development server
+pnpm build  # production build
+pnpm lint   # ESLint
 ```

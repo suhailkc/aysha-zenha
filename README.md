@@ -5,8 +5,8 @@ Personal birthday gift website for Aysha Zenha. Built with Next.js (App Router),
 ## Getting started
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000). Edit `src/app/page.tsx` to begin the landing page.
@@ -15,10 +15,10 @@ Open [http://localhost:3000](http://localhost:3000). Edit `src/app/page.tsx` to 
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Production build |
-| `npm run start` | Serve production build |
-| `npm run lint` | Run ESLint |
+| `pnpm dev` | Start development server |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve production build |
+| `pnpm lint` | Run ESLint |
 
 ## Project docs
 
@@ -36,4 +36,4 @@ The site sets **`noindex`** metadata and a restrictive **`robots.txt`** to disco
 
 ## Deploy
 
-Deploy to [Vercel](https://vercel.com) (Hobby tier is fine for personal use). No environment variables are required for the planned static experience. Run `npm run photos:prepare` on the build machine before deploy if the gallery should show real photos.
+Deploy to [Vercel](https://vercel.com) (Hobby tier is fine for personal use). Vercel detects `pnpm-lock.yaml` automatically. No environment variables are required for the planned static experience. Run `pnpm photos:prepare` on the build machine before deploy if the gallery should show real photos.

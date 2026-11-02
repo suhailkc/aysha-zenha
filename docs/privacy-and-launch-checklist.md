@@ -24,20 +24,20 @@ Anyone with the live URL can open HTML pages and fetch anything under `public/` 
 - [ ] Search `src/data/` and JSON copy for **school names**, **home address**, **full date of birth**, **birth year**, **city**, **license plates**, **karate school or dojo names**, **training schedule or location**, or other identifying details. Remove or rewrite before deploy.
 - [ ] Review every gallery **alt text**, **caption**, and love note **message** in `src/data/`.
 - [ ] Confirm hero portrait alt text in `src/data/home.ts` (`hero.portraitAlt`) matches the photo without private details.
-- [ ] Crop or blur identifying background details in source photos (signs, uniforms, dojo wall text, house numbers) **before** running `npm run photos:prepare` or adding karate images under `public/images/karate/`.
+- [ ] Crop or blur identifying background details in source photos (signs, uniforms, dojo wall text, house numbers) **before** running `pnpm photos:prepare` or adding karate images under `public/images/karate/`.
 - [ ] Use generic output names in `prepare.config.json` (for example `photo-01.webp`), not real filenames, in case manifests are shared.
 
 ### Photos and Git
 
 - [ ] Originals stay in `private-photo-input/` only (gitignored).
-- [ ] Prepared WebP files live in `public/photos/` (gitignored). Run `npm run photos:prepare` on the machine that builds or deploys.
+- [ ] Prepared WebP files live in `public/photos/` (gitignored). Run `pnpm photos:prepare` on the machine that builds or deploys.
 - [ ] After prepare, spot-check a WebP with an EXIF viewer to confirm **no GPS, device serial, or embedded location**.
 - [ ] Do **not** commit `.env`, originals, or unprepared personal photos.
 
 ### Technical smoke test
 
-- [ ] `npm run lint` passes.
-- [ ] `npm run build` passes on a machine that has prepared photos if you expect the gallery to be full.
+- [ ] `pnpm lint` passes.
+- [ ] `pnpm build` passes on a machine that has prepared photos if you expect the gallery to be full.
 - [ ] Click through every route on a phone-width viewport: no horizontal scroll, tappable nav, readable headings.
 - [ ] Gallery lightbox: open a photo, use **Escape**, **Close**, **Previous** / **Next**, and keyboard focus ring on controls.
 - [ ] Home: open hero “Surprise me” and confirm the dialog closes with keyboard and screen reader labels.

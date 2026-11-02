@@ -3,7 +3,7 @@ export const galleryPageContent = {
   filterLabel: "Browse by mood",
   emptyTitle: "No photos yet",
   emptyBody:
-    "When you are ready, drop originals into private-photo-input/, run npm run photos:prepare, and this page will fill with memories.",
+    "When you are ready, drop originals into private-photo-input/, run pnpm photos:prepare, and this page will fill with memories.",
   emptyHint: "See docs/photo-workflow.md for step-by-step help.",
   filterEmptyMessage:
     "No photos in this category yet. Try “All” or pick another mood.",

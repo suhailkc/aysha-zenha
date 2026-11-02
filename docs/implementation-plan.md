@@ -1,6 +1,6 @@
 # Aysha's Little Universe — implementation plan
 
-This document tracks how we will build the gift site in phases. The repo scaffold is Next.js 16 (App Router), TypeScript, Tailwind CSS 4, ESLint, and npm with `src/` and `@/*` paths.
+This document tracks how we will build the gift site in phases. The repo scaffold is Next.js 16 (App Router), TypeScript, Tailwind CSS 4, ESLint, and pnpm with `src/` and `@/*` paths.
 
 ## Design system (phase 0, before major UI)
 
@@ -94,7 +94,7 @@ Types live in `src/types/content.ts` (extend with `KarateMilestone`, optional ga
 2. **Prepare:** Resize/compress for web (e.g. max 1600px long edge, JPEG/WebP). Strip EXIF if it contains location or device identifiers.
 3. **Review:** Crop or blur anything identifying (license plates, school signs, house numbers, **dojo name on wall or uniform**, full names of other children if desired).
 4. **Place locally:**
-   - Gallery: `public/photos/` via `npm run photos:prepare` (see `docs/photo-workflow.md`)
+   - Gallery: `public/photos/` via `pnpm photos:prepare` (see `docs/photo-workflow.md`)
    - Karate (when live): `public/images/karate/`
    - **Karate Journey:** `public/images/karate/` (same privacy review; gitignore binaries like other photo folders if policy matches gallery)
 5. **Register:** Add entries in the appropriate data file with thoughtful `alt` text (describe the moment, not private details).
@@ -125,8 +125,8 @@ No Route Handlers or external fetch for core features.
 
 ## Validation steps (run before each deploy)
 
-1. `npm run lint` — zero errors
-2. `npm run build` — static generation succeeds
+1. `pnpm lint` — zero errors
+2. `pnpm build` — static generation succeeds
 3. Manual pass: mobile (375px), tablet, desktop
 4. Privacy pass: follow **`docs/privacy-and-launch-checklist.md`** (search for school, address, full DOB, **dojo**, **training location/schedule**, etc.)
 5. Confirm no `.env` required; no network calls to third-party analytics
