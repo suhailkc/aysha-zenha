@@ -94,13 +94,11 @@ Types live in `src/types/content.ts` (extend with `KarateMilestone`, optional ga
 2. **Prepare:** Resize/compress for web (e.g. max 1600px long edge, JPEG/WebP). Strip EXIF if it contains location or device identifiers.
 3. **Review:** Crop or blur anything identifying (license plates, school signs, house numbers, **dojo name on wall or uniform**, full names of other children if desired).
 4. **Place locally:**
-   - Gallery: `public/photos/` via `pnpm photos:prepare` (see `docs/photo-workflow.md`)
+   - Gallery: run `npm run photos:prepare` from originals in `private-photo-input/` (see `docs/photo-workflow.md`)
    - Karate (when live): `public/images/karate/`
    - **Karate Journey:** `public/images/karate/` (same privacy review; gitignore binaries like other photo folders if policy matches gallery)
 5. **Register:** Add entries in the appropriate data file with thoughtful `alt` text (describe the moment, not private details).
-6. **Git:** Gallery binaries are **gitignored** by default. For Vercel deploy, either:
-   - build/deploy from a machine that has photos in `public/`, or
-   - use a private deploy pipeline that injects assets (still treat deployed URLs as public).
+6. **Git:** Commit prepared `public/photos/*.webp` and `src/data/gallery-manifest.json` so any clone can build and deploy. Keep originals in `private-photo-input/` out of git. Use a **private** GitHub repo; deployed URLs remain public.
 
 See `public/images/gallery/README.md`, `docs/photo-workflow.md`, and (when added) `public/images/karate/README.md`.
 

@@ -65,14 +65,30 @@ When the gallery supports it, tag approved public karate snapshots (for example 
 
 Approved karate images for **Karate Corner** and **`/karate`** live under `public/images/karate/` (see `docs/content-editing.md` and `docs/implementation-plan.md`). Optimize and strip EXIF the same way as gallery photos. Crop or blur dojo signage and other identifying details before deploy. Register each file in `src/data/karate-journey.json` when that page is implemented.
 
-## 5. Deploy
+## 5. Commit and sync (any computer)
 
-`public/photos/` is gitignored. Before `pnpm build` or a Vercel deploy, run `photos:prepare` on a machine that has the originals and config. Treat anything in `public/photos/` as **public** once the site is live.
+After prepare, commit the outputs so other machines and Vercel get the same images:
+
+```bash
+git add public/photos/*.webp src/data/gallery-manifest.json
+# If you edited captions/tags:
+git add src/data/gallery-entries.json
+git commit -m "Add or update prepared gallery photos."
+git push
+```
+
+On another computer: `git pull`, then `npm run dev` or push to trigger deploy. You only need originals in `private-photo-input/` when **adding or replacing** photos (run prepare on that machine, then commit the new WebPs).
+
+Keep the GitHub repo **private**. Treat deployed photos as **public** on the live site.
+
+## 6. Deploy
+
+With WebPs in git, a normal push to `main` includes gallery assets on Vercel. If you changed originals locally, run `npm run photos:prepare` before commit so manifest and WebPs stay in sync.
 
 ## Quick checklist
 
 1. Drop files in `private-photo-input/`.
 2. Update `prepare.config.json`.
-3. Run `pnpm photos:prepare`.
+3. Run `npm run photos:prepare`.
 4. Personalize `src/data/gallery-entries.json`.
-5. Build and deploy from a machine that has the prepared WebP files.
+5. Commit `public/photos/*.webp`, manifest, and entries; push.

@@ -54,7 +54,7 @@ See `docs/implementation-plan.md` for structure and validation steps.
 - **Karate photos:** use only images the family approved for public display; crop or blur identifying uniforms, signage, or backgrounds before prepare/deploy.
 - **No collection:** no public forms, submissions, or user data storage.
 - **Public assets:** treat all deployed photos and static files as publicly accessible; an unlisted URL is not security.
-- **Git:** never commit original photographs, `.env` files, or secrets. Follow `public/images/gallery/README.md` for the photo workflow.
+- **Git:** never commit originals in `private-photo-input/`, `.env` files, or secrets. Commit prepared `public/photos/*.webp` and `src/data/gallery-manifest.json` for multi-machine sync; keep the repo private. See `docs/photo-workflow.md`.
 
 ## Code conventions
 
