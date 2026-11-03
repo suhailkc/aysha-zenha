@@ -77,18 +77,18 @@ git commit -m "Add or update prepared gallery photos."
 git push
 ```
 
-On another computer: `git pull`, then `npm run dev` or push to trigger deploy. You only need originals in `private-photo-input/` when **adding or replacing** photos (run prepare on that machine, then commit the new WebPs).
+On another computer: `git pull`, then `pnpm dev` or push to trigger deploy. You only need originals in `private-photo-input/` when **adding or replacing** photos (run prepare on that machine, then commit the new WebPs).
 
 Keep the GitHub repo **private**. Treat deployed photos as **public** on the live site.
 
 ## 6. Deploy
 
-With WebPs in git, a normal push to `main` includes gallery assets on Vercel. If you changed originals locally, run `npm run photos:prepare` before commit so manifest and WebPs stay in sync.
+With WebPs in git, a normal push to `main` includes gallery assets on Vercel. If you changed originals locally, run `pnpm photos:prepare` before commit so manifest and WebPs stay in sync.
 
 ## Quick checklist
 
 1. Drop files in `private-photo-input/`.
 2. Update `prepare.config.json`.
-3. Run `npm run photos:prepare`.
+3. Run `pnpm photos:prepare`.
 4. Personalize `src/data/gallery-entries.json`.
 5. Commit `public/photos/*.webp`, manifest, and entries; push.

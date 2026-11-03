@@ -28,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000). Edit `src/app/page.tsx` to 
 
 ## Photos
 
-Prepared WebP files go in `public/photos/` (gitignored). Originals stay in `private-photo-input/`. See **`docs/photo-workflow.md`**.
+Prepared WebP files in `public/photos/` are committed to git. Originals stay in `private-photo-input/` (gitignored). See **`docs/photo-workflow.md`**.
 
 ## Privacy note
 
@@ -36,4 +36,4 @@ The site sets **`noindex`** metadata and a restrictive **`robots.txt`** to disco
 
 ## Deploy
 
-Deploy to [Vercel](https://vercel.com) (Hobby tier is fine for personal use). Vercel detects `pnpm-lock.yaml` automatically. No environment variables are required for the planned static experience. Run `pnpm photos:prepare` on the build machine before deploy if the gallery should show real photos.
+Deploy to [Vercel](https://vercel.com) (Hobby tier is fine for personal use). Vercel detects `pnpm-lock.yaml` automatically. No environment variables are required for the planned static experience. Gallery WebPs in git deploy with a normal push; run `pnpm photos:prepare` when you add or replace photos.

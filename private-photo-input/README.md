@@ -4,7 +4,7 @@ Put **original** JPEG, PNG, or WebP files here. They stay on your machine only; 
 
 1. Copy photos into this directory.
 2. List each file in `prepare.config.json` with a safe output name (for example `photo-01.webp` or `hero.webp`).
-3. Run `npm run photos:prepare` from the project root.
+3. Run `pnpm photos:prepare` from the project root.
 4. Edit captions, tags, and alt text in `src/data/gallery-entries.json`.
 5. Commit `public/photos/*.webp` and `src/data/gallery-manifest.json`, then push (prepared files are tracked in git; originals stay here only).
 

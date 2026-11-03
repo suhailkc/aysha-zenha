@@ -30,7 +30,7 @@ Anyone with the live URL can open HTML pages and fetch anything under `public/` 
 ### Photos and Git
 
 - [ ] Originals stay in `private-photo-input/` only (gitignored).
-- [ ] Prepared WebP files live in `public/photos/` (gitignored). Run `pnpm photos:prepare` on the machine that builds or deploys.
+- [ ] Prepared WebP files live in `public/photos/` (committed to git). Run `pnpm photos:prepare` when adding or replacing originals.
 - [ ] After prepare, spot-check a WebP with an EXIF viewer to confirm **no GPS, device serial, or embedded location**.
 - [ ] Do **not** commit `.env`, originals, or unprepared personal photos.
 

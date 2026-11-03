@@ -94,7 +94,7 @@ Types live in `src/types/content.ts` (extend with `KarateMilestone`, optional ga
 2. **Prepare:** Resize/compress for web (e.g. max 1600px long edge, JPEG/WebP). Strip EXIF if it contains location or device identifiers.
 3. **Review:** Crop or blur anything identifying (license plates, school signs, house numbers, **dojo name on wall or uniform**, full names of other children if desired).
 4. **Place locally:**
-   - Gallery: run `npm run photos:prepare` from originals in `private-photo-input/` (see `docs/photo-workflow.md`)
+   - Gallery: run `pnpm photos:prepare` from originals in `private-photo-input/` (see `docs/photo-workflow.md`)
    - Karate (when live): `public/images/karate/`
    - **Karate Journey:** `public/images/karate/` (same privacy review; gitignore binaries like other photo folders if policy matches gallery)
 5. **Register:** Add entries in the appropriate data file with thoughtful `alt` text (describe the moment, not private details).

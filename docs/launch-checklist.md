@@ -54,7 +54,7 @@ Guide: **`docs/content-editing.md`**.
 ## Deploy and update
 
 1. Complete the privacy section below on a family-reviewed copy of the site.
-2. Run `pnpm photos:prepare` on the deploy machine if the gallery should include real photos (`public/photos/` is gitignored).
+2. Run `pnpm photos:prepare` only when adding or replacing photos; prepared WebPs in `public/photos/` are committed to git.
 3. Push to your Git host and deploy with **Vercel** (Next.js preset, Hobby tier is fine).
 4. Optional: set **`NEXT_PUBLIC_SITE_URL`** in Vercel to your canonical URL.
 5. After deploy, click through every route on phone and desktop widths.

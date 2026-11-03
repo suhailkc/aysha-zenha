@@ -1,6 +1,6 @@
 # Prepared photos (tracked in git)
 
-WebP files here are produced by **`npm run photos:prepare`** from originals in `private-photo-input/`.
+WebP files here are produced by **`pnpm photos:prepare`** from originals in `private-photo-input/`.
 
 - **`hero.webp`** — optional homepage portrait
 - **`photo-01.webp`**, **`photo-02.webp`**, … — memory gallery
